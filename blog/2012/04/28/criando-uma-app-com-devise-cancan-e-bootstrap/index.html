@@ -1,0 +1,898 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Criando Uma App Com Devise CanCan e Bootstrap - Rogerio Medeiros</title>
+        <meta name="author" content="Rogerio Medeiros">
+        
+        <meta name="description" content="ruby rails git linux ubuntu lol rogerio medeiros rvm github argerim">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://argerim.github.io/blog/2012/04/28/criando-uma-app-com-devise-cancan-e-bootstrap">
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="Rogerio Medeiros" type="application/atom+xml">
+    </head>
+
+
+    <body >
+
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">Rogerio Medeiros</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/cv/">C.V.</a></li>
+</ul>
+</nav>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">Criando Uma App Com Devise CanCan e Bootstrap</h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2012-04-28T20:25:00-03:00" pubdate><i class="fa fa-calendar"></i> Apr 28th, 2012</time>
+
+
+
+
+            
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p>Recentemente surgiu essa <a href="http://groups.google.com/group/gurupi_/browse_thread/thread/1e8d60e6b00e922d?hl=pt-BR">dúvida</a> no <a href="http://gurupi.org/">GuruPI</a>. Para tentar ajudar aqueles que estão começando, bem como meu colega que estava com a dúvida, resolvi criar esse post e colocar a app criada no <a href="https://github.com/">Github</a>.</p>
+
+<p>Sobre as gems usadas no post</p>
+
+<p><a href="https://github.com/plataformatec/devise">Devise</a></p>
+
+<p>Uma gem bastante fexível para autenticação em aplicações web, bem como genrenciamento dos dados do usuário.</p>
+
+<p><a href="https://github.com/ryanb/cancan">CanCan</a></p>
+
+<p>Gem que irá nos permitir fazer o gerenciamento de permissões para cada usuário do sistema.</p>
+
+<p><a href="">Twitter Bootstrap Rails</a></p>
+
+<p>Esta gem nos ajudará a reconfigurar toda a estrutura de layout padrão do Rails, nos dando uma visualização mais agradável da aplicação atraves do <a href="http://twitter.github.com/bootstrap/">bootstrap</a>.</p>
+
+<p>Seguindo com o nosso post, essa será mais ou menos a estrutura de nossa aplicação:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">User</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:role</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Role</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:users</span>
+</span><span class='line'>  <span class="n">has_and_belongs_to_many</span> <span class="ss">:permissions</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Permission</span>
+</span><span class='line'>  <span class="n">has_and_belongs_to_many</span> <span class="ss">:roles</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Vamos criar nossa aplicação com o seguinte comando:</p>
+
+<pre><code>rails new exemplo_cancan_e_devise
+</code></pre>
+
+<p>Depois de criar vamos deletar o seguinte arquivo public/index.html</p>
+
+<pre><code>rm public/index.html
+</code></pre>
+
+<p>Agora colocaremos as gems que iremos usar no arquivo Gemfile:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;devise&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;cancan&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;commonjs&#39;</span><span class="p">,</span> <span class="s1">&#39;= 0.2.0&#39;</span> <span class="c1"># essa foi pq deu um probleminha quando coloquei a gem do bootstrap</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;twitter-bootstrap-rails&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Com isso nossa app sabe que queremos usar essas gems, então vamos executar o seguinte comando, para podermos usar os geradores de cada gem:</p>
+
+<pre><code>bundle install
+</code></pre>
+
+<p>Eu iriei fazer um breve comentário sobre cada comando usado de cada gem aqui, para se aprofundar mais você deve ir ate a url colocada no inicio do post de cada gem.</p>
+
+<pre><code>Esse comando irar criar um arquivo com o nome devise.rb, dentro de config/initializers com as configurações padrões do devise e colocará devise_for :users, dentro do arquivo config/routes, assim teremos todas as rotas do devise.    
+rails generate devise:install
+
+Esse irá criar um model com as definições do devise, bem como uma migration com os campos padrões do devise
+rails generate devise user
+
+Comando que executa todas as migrations(nada mais é que uma forma organizada de criar tabelas, deletar, alterar ou criar novos campos no banco de dados).
+rake db:migrate
+
+Irá gerar a views usadas pelo devise dentro de app/views/devise
+rails generate devise:views
+
+Como esse comando vamos criar um controller dentro da pasta app/controllers, assim poderemos acessar alguns dados do usuário nas views que o devise nao cria.
+rails g controller users
+
+Aqui o cancan cria uma classe dentro da pasta models com o nome ability, essa classe irá manter, gerenciar as permissões em cada usuário
+rails g cancan:ability
+
+Com o comando scaffold eu posso criar um CRUD rapidamente, passando o nome e logo em seguida os campos com seus tipos.
+Aqui ele cria um controller um model uma migration com o campo name do tipo string
+rails g scaffold roles name:string
+
+O paramentro role:references irar criar um campo role_id do tipo inteiro dentro da tabela e adiciona belongs_to role, dentro do model Permission
+rails g scaffold permissions action:string subject_class:string role:references
+
+rake db:migrate
+
+Com isso vamos colocar os arquivos js, bem como suas chamadas dentro do arquivo application.js encontrado em app/assets/javascritps e de css em app/assets/stylesheets do boostrap.
+rails g bootstrap:install
+
+Aqui estou criando um arquivo com nome application com o css do boostrap dentro de views/layouts
+rails g bootstrap:layout application fixed
+
+Esses comando da gem bootstrap ira varer as tabelas e inserir dentro das views de cada pasta passada, dentro de app/views, substituindo as tags em html e css, colocando as do boostrap em cada campo da tabela.
+rails g bootstrap:themed Users
+rails g bootstrap:themed Roles
+rails g bootstrap:themed Permissions
+</code></pre>
+
+<p>Agora vamos criar 2 migrations uma para adicionar role_id dentro da tabela users e a outra para fazer o gerenciamento de muitos para muitos entre Permission e Role.</p>
+
+<pre><code>rails g migration add_role_id_to_users
+rails g migration create_table_permissions_roles
+</code></pre>
+
+<p>Abra os arquivos que se encontram em db/migrate e modifique-os:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>  <span class="n">add_column</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:role_id</span><span class="p">,</span> <span class="ss">:integer</span> <span class="c1">#adicionando coluna role_id do tipo inteiro na tabela users</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">create_table</span> <span class="ss">:permissions_roles</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="kp">false</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">t</span><span class="o">.</span><span class="n">integer</span> <span class="ss">:permission_id</span>
+</span><span class='line'>  <span class="n">t</span><span class="o">.</span><span class="n">integer</span> <span class="ss">:role_id</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="c1">#criando a tabela permissions_roles, o id =&gt; false, estou dizendo para o rails nao criar a tabela com o campo id, e lembrando que nossa tabela muitos para muitos o nome deve ser em ordem alfabetica dos models</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Execute novamente:</p>
+
+<pre><code>rake db:migrate
+</code></pre>
+
+<p>Depois de tudo isso feito nossa aplicação esta quase pronta, faltando apenas algumas validações e modificações no layout e a configuração do arquivo ability.</p>
+
+<p>Começaremos pelas validações e relacionamentos, como existia a necessidade de termos a permissão para cada view no banco, apareceu o relacionamento muitos para muitos entre Permission e Role, logo vamos deixa-los assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Permission</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">has_and_belongs_to_many</span> <span class="ss">:roles</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">validates_uniqueness_of</span> <span class="ss">:action</span><span class="p">,</span> <span class="ss">:scope</span> <span class="o">=&gt;</span> <span class="ss">:subject_class</span>
+</span><span class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:action</span><span class="p">,</span> <span class="ss">:subject_class</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Role</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:dependent</span> <span class="o">=&gt;</span> <span class="ss">:restrict</span>
+</span><span class='line'>  <span class="n">has_and_belongs_to_many</span> <span class="ss">:permissions</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:permissions</span>
+</span><span class='line'>  <span class="n">validates_uniqueness_of</span> <span class="ss">:name</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Aproveitando vamos colocar também no model User.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="c1"># Include default devise modules. Others available are:</span>
+</span><span class='line'>  <span class="c1"># :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable</span>
+</span><span class='line'>  <span class="n">devise</span> <span class="ss">:database_authenticatable</span><span class="p">,</span> <span class="ss">:registerable</span><span class="p">,</span>
+</span><span class='line'>         <span class="ss">:recoverable</span><span class="p">,</span> <span class="ss">:rememberable</span><span class="p">,</span> <span class="ss">:trackable</span><span class="p">,</span> <span class="ss">:validatable</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Setup accessible (or protected) attributes for your model</span>
+</span><span class='line'>  <span class="n">attr_accessible</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">:password_confirmation</span><span class="p">,</span> <span class="ss">:remember_me</span><span class="p">,</span> <span class="ss">:role_id</span>
+</span><span class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:role_id</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:role</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Explicando:</p>
+
+<p>Com o has_and_belongs_to_many, estou dizendo que existe um relacionameto muitos para muitos.</p>
+
+<p>has_many :users, :dependent => :restrict, aqui estou dizendo que Role pode ter muitos usuários, mas que se existir algum usuário com um role, esse role nao pode ser deletado(:dependent => :restrict).</p>
+
+<p>belongs_to aqui entende-se que dentro dessa tabela que o usa nos temos um campo id de outra tabela.</p>
+
+<p>validates_uniqueness_of :action, :scope => :subject_class, aqui eu estou dizendo que o campo action deve ser unico e passando :scope eu faço uma verificação de exclusividade com o campo subject_class, assim eu nao vou poder ter 2x action index para subject_class User. Isso simplesmente irá evitar de termos 2x a mesma permissão dentro de Role.</p>
+
+<p>validates_presence_of aqui ele verifica se o campo foi preenchido.</p>
+
+<p>Assim como o cancan, o <a href="http://rogeriolol.heroku.com/blog/2012/02/14/tratando-dependent-restrict-no-rails/">:dependent => :restrict</a> gera uma exception, fazendo com que a aplicação não tenha um comportamento adequado, para ajustarmos isso, adicionamos os seguintes códigos dentro de app/controllers/application_controller.rb</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">rescue_from</span> <span class="no">CanCan</span><span class="o">::</span><span class="no">AccessDenied</span> <span class="k">do</span> <span class="o">|</span><span class="n">exception</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">:alert</span> <span class="o">=&gt;</span> <span class="n">exception</span><span class="o">.</span><span class="n">message</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">rescue_from</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">DeleteRestrictionError</span> <span class="k">do</span> <span class="o">|</span><span class="n">exception</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="ss">:back</span><span class="p">,</span> <span class="ss">:alert</span> <span class="o">=&gt;</span> <span class="n">exception</span><span class="o">.</span><span class="n">message</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora vamos até o arquivo app/models/ability.rb e modifica-lo:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Ability</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">CanCan</span><span class="o">::</span><span class="no">Ability</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">can</span> <span class="ss">:manage</span><span class="p">,</span> <span class="ss">:all</span> <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">role</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;admin&#39;</span>
+</span><span class='line'>    <span class="n">user</span><span class="o">.</span><span class="n">role</span><span class="o">.</span><span class="n">permissions</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">permission</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">can</span> <span class="n">permission</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">to_sym</span><span class="p">,</span> <span class="n">permission</span><span class="o">.</span><span class="n">subject_class</span><span class="o">.</span><span class="n">constantize</span> <span class="k">do</span>
+</span><span class='line'>          <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">nil?</span> <span class="o">||</span> <span class="n">user</span><span class="o">.</span><span class="n">role_id?</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>O que basicamente ele faz é verifica se o role do usuario logado é admin, se for o usuário tera todas as permissões na aplicação, agora senão for admin, ele irá verificar as permissões do usuário para cada action em cada model.</p>
+
+<p>Agora vamos fazer as modificações na view devise/registration/edit.html.erb e new.html.erb, para podermos modificar e adicionar o role do usuário, adicione o seguinte trecho:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;control-group&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= f.label :role_id, :class =</span><span class="o">&gt;</span> <span class="s1">&#39;control-label&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;div class=&quot;controls&quot;&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.collection_select :role_id, roles, :id, :name, :include_blank =</span><span class="o">&gt;</span> <span class="s2">&quot;--- Select ---&quot;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hum têm alguns helpers que devem ser criados, vamos ao arquivo app/helpers/application_helper.rb e coloque isso:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">get_model_names_sub</span>
+</span><span class='line'>      <span class="no">Dir</span><span class="o">[</span><span class="s1">&#39;app/models/*.rb&#39;</span><span class="o">].</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;.*&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">camelize</span><span class="o">.</span><span class="n">constantize</span><span class="o">.</span><span class="n">name</span> <span class="p">}</span><span class="o">.</span><span class="n">reject!</span><span class="p">{</span><span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="n">m</span><span class="o">.</span><span class="n">constantize</span><span class="o">.</span><span class="n">superclass</span> <span class="o">!=</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">roles</span>
+</span><span class='line'>  <span class="no">Role</span><span class="o">.</span><span class="n">all</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>O primeiro me retorna todos os Models da aplicação e o segundo todos os roles.</p>
+
+<p>Seguindo a leitura da <a href="http://groups.google.com/group/gurupi_/browse_thread/thread/1e8d60e6b00e922d?hl=pt-BR">dúvida</a> do meu colega, tem-se uma imagem, como eu não queria criar uma tabela para fazer os gerenciamentos dos models da app, pensei em usar somente um metodo para fazer isso é aqui que entra o helper get_model_names_sub lol.</p>
+
+<p>Abrimos o arquivo _form.html.erb da pasta views/roles e modificamos:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= form_for @role, :html =</span><span class="o">&gt;</span> <span class="p">{</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;form-horizontal&#39;</span> <span class="p">}</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;fieldset&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="n">legend</span><span class="o">&gt;&lt;</span><span class="sx">%= controller.action_name.capitalize %&gt; /Role&lt;/legend&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sx">    &lt;div class=</span><span class="s2">&quot;control-group&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="sx">%= f.label :name, :class =</span><span class="o">&gt;</span> <span class="s1">&#39;control-label&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">      &lt;div class=&quot;controls&quot;&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="sx">%= f.text_field :name, :class =</span><span class="o">&gt;</span> <span class="s1">&#39;text_field&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">      &lt;/div&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">  &lt;% get_model_names_sub.each do |models_names| %&gt;    </span>
+</span><span class='line'><span class="sr">    &lt;div class=&quot;control-group&quot;&gt;</span>
+</span><span class='line'><span class="sr">      &lt;%= field_set_tag models_names do %&gt;</span>
+</span><span class='line'><span class="sr">        &lt;% Permission.where(:subject_class =&gt; models_names).each do |permission| %&gt;</span>
+</span><span class='line'><span class="sr">          &lt;label class=&quot;checkbox&quot;&gt;</span>
+</span><span class='line'><span class="sr">            &lt;%= check_box_tag &#39;role[permission_ids][]&#39;, permission.id, @role.permissions.include?(permission) %&gt;</span>
+</span><span class='line'><span class="sr">            &lt;%= permission.action %&gt;      </span>
+</span><span class='line'><span class="sr">          &lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;%</span><span class="k">end</span><span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">      &lt;%end%&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span><span class='line'><span class="sr">  &lt;%end%&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">    &lt;div class=&quot;form-actions&quot;&gt;</span>
+</span><span class='line'><span class="sr">      &lt;%= f.submit nil, :class =&gt; &#39;btn btn-primary&#39; %&gt;</span>
+</span><span class='line'><span class="sr">      &lt;%= link_to &#39;Cancel&#39;, roles_path, :class =&gt; &#39;btn&#39; %&gt;</span>
+</span><span class='line'><span class="sr">    &lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sr">/fieldset&gt;</span>
+</span><span class='line'><span class="sr">&lt;% end %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ficou um pouco feio, mas o post ja estava muito grande, então vamos seguindo.</p>
+
+<p>Eu criei um arquivo seed, então é so dar uma olhada <a href="https://github.com/argerim/Exemplo-CanCan-e-Devise">aqui</a>, para os que não sabem esse arquivo serve para popular o banco de dados e fica dentro da pasta db. O comando é o seguinte:</p>
+
+<pre><code>rake db:seed
+</code></pre>
+
+<p>Ah falta modificar o menu, abra o arquivo app/layouts/application.html.erb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>        <span class="o">&lt;</span><span class="sx">% if </span><span class="n">user_signed_in?</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">          &lt;ul class=&quot;nav&quot;&gt;</span>
+</span><span class='line'>            <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="sx">%= link_to &quot;Users&quot;, users_path if can? :read, &#39;User&#39; %&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="sx">            &lt;li&gt;&lt;%=</span> <span class="n">link_to</span> <span class="s2">&quot;Roles&quot;</span><span class="p">,</span> <span class="n">roles_path</span> <span class="k">if</span> <span class="n">can?</span> <span class="ss">:read</span><span class="p">,</span> <span class="s1">&#39;Role&#39;</span> <span class="sx">%&gt;&lt;/li&gt;</span>
+</span><span class='line'>            <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="sx">%= link_to &quot;Permissions&quot;, permissions_path if can? :read, &#39;Permission&#39; %&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="sx">          &lt;/ul&gt;</span>
+</span><span class='line'><span class="sx">          &lt;ul class=</span><span class="s2">&quot;nav pull-right&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>            <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="sx">%= link_to current_user.email, edit_user_registration_path %&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="sx">            &lt;li&gt;&lt;%=</span> <span class="n">link_to</span> <span class="s2">&quot;Logout&quot;</span><span class="p">,</span> <span class="n">destroy_user_session_path</span><span class="p">,</span> <span class="ss">:method</span> <span class="o">=&gt;</span> <span class="ss">:delete</span> <span class="sx">%&gt;&lt;/li&gt;</span>
+</span><span class='line'>          <span class="o">&lt;</span><span class="sr">/ul&gt;</span>
+</span><span class='line'><span class="sr">        &lt;%end%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Assim o menu só será exibido se o usuário tiver permissão, também ficou faltando adicionar load_and_authorize_resource dentro dos controllers, sem ele o cancan não vai poder fazer as verificações de permissão.</p>
+
+<p>E finalizando o nosso controller de users:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span><span class='line'>  
+</span><span class='line'> <span class="n">before_filter</span> <span class="ss">:authenticate_user!</span>
+</span><span class='line'> <span class="n">load_and_authorize_resource</span>
+</span><span class='line'>
+</span><span class='line'> <span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>    <span class="vi">@users</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">all</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="c1"># index.html.erb</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@users</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># GET /users/1</span>
+</span><span class='line'>  <span class="c1"># GET /users/1.json</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">show</span>
+</span><span class='line'>    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="c1"># show.html.erb</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@user</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Teve tambem essa pequena adição no arquivo app/views/layouts/application.html.erb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% flash.each </span><span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">msg</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%= content_tag :div, msg, :class =&gt;</span> <span class="s2">&quot;alert alert-</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;% end %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Essa dentro do arquivo app/assets/javascript/boostrap_and_overrides.css.less:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">.</span><span class="n">alert</span><span class="o">-</span><span class="n">notice</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">background</span><span class="o">-</span><span class="ss">color</span><span class="p">:</span> <span class="c1">#DFF0D8;</span>
+</span><span class='line'>    <span class="n">border</span><span class="o">-</span><span class="ss">color</span><span class="p">:</span> <span class="c1">#D6E9C6;</span>
+</span><span class='line'>    <span class="ss">color</span><span class="p">:</span> <span class="c1">#468847;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">.</span><span class="n">form</span><span class="o">-</span><span class="n">horizontal</span> <span class="o">.</span><span class="n">control</span><span class="o">-</span><span class="ss">group</span><span class="p">:</span><span class="n">before</span><span class="p">,</span> <span class="o">.</span><span class="n">form</span><span class="o">-</span><span class="n">horizontal</span> <span class="o">.</span><span class="n">control</span><span class="o">-</span><span class="ss">group</span><span class="p">:</span><span class="n">after</span> <span class="p">{</span>
+</span><span class='line'>    <span class="ss">content</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nb">display</span><span class="p">:</span> <span class="n">inline</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">.</span><span class="n">radio</span><span class="p">,</span> <span class="o">.</span><span class="n">checkbox</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nb">display</span><span class="p">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>E essa dentro do config/application.rb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ActionView</span><span class="o">::</span><span class="no">Base</span><span class="o">.</span><span class="n">field_error_proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">html_tag</span><span class="p">,</span> <span class="n">instance</span><span class="o">|</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">html_tag</span> <span class="o">=~</span> <span class="sr">/&lt;input/</span> <span class="o">||</span> <span class="n">html_tag</span> <span class="o">=~</span><span class="sr">/&lt;select/</span>
+</span><span class='line'>        <span class="sx">%|&lt;div class=&quot;control-group error&quot;&gt;</span><span class="si">#{</span><span class="n">html_tag</span><span class="si">}</span><span class="sx"> &lt;span class=&quot;help-inline&quot;&gt;</span><span class="si">#{</span><span class="o">[</span><span class="n">instance</span><span class="o">.</span><span class="n">error_message</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="si">}</span><span class="sx">&lt;/span&gt;&lt;/div&gt;|</span><span class="o">.</span><span class="n">html_safe</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">html_tag</span> <span class="o">=~</span> <span class="sr">/&lt;label/</span>
+</span><span class='line'>        <span class="sx">%|&lt;div class=&quot;control-group error&quot;&gt;</span><span class="si">#{</span><span class="n">html_tag</span><span class="si">}</span><span class="sx">|</span><span class="o">.</span><span class="n">html_safe</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>        <span class="n">html_tag</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Essa é parra mudar as mensagens de validação, as outras são mudanças no comportamento do css.</p>
+
+<p>Simples e fácil lol, o código esta <a href="https://github.com/argerim/Exemplo-CanCan-e-Devise">aqui</a>, espero não ter esquecido de nada.</p>
+
+
+
+</article>
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--unavailable hire--vibrant">
+    
+        Not looking for new opportunities at this time
+    
+</div>
+
+
+        </section>
+    
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        
+        <li><a class="github" href="//github.com/argerim"><i class="fa fa-github"></i> Github</a></li>
+        
+        
+        
+        <li><a class="linkedin" href="//linkedin.com/in/argerim"><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+        
+        
+        
+        <li><a class="twitter" href="//twitter.com/argerimsf"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
+</section>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2012/06/23/criando-e-manipulando-string-com-gsub-em-lua/">Criando E Manipulando String Com Gsub Em Lua</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/26/minha-mais-nova-gem-address-by-cep/">Minha Mais Nova Gem Address By Cep</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/15/cont-preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/">Cont Preenchendo ComboBox Com Cidades De Acordo Com O Estado Selecionado Em Rails</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/13/exibindo-versao-ruby-gemset-e-branch-atual-no-terminal/">Exibindo Versao Ruby Gemset E Branch Atual No Terminal</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/11/um-mes-de-rio-de-janeiro/">Um Mes De Rio De Janeiro</a>
+        </li>
+        
+    </ul>
+</section>
+
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/argerim" title="@argerim on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Latest Tweets
+        
+        <small class="pull-right">
+            <a class="btn" href="//twitter.com/argerimsf" title="@argerimsf on Twitter" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/argerimsf"  data-widget-id="597899201150869504"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @argerimsf</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <p class="footer__copyright">
+    All content copyright Rogerio Medeiros.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div>
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--unavailable hire--vibrant">
+    
+        Not looking for new opportunities at this time
+    
+</div>
+
+</div>
+        </div>
+        
+    </div>
+</footer>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-29610246-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'meubloglol';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://argerim.github.io/blog/2012/04/28/criando-uma-app-com-devise-cancan-e-bootstrap/';
+        var disqus_url = 'http://argerim.github.io/blog/2012/04/28/criando-uma-app-com-devise-cancan-e-bootstrap/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'argerim',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>

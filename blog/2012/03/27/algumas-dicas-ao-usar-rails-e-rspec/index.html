@@ -1,0 +1,532 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Algumas Dicas Ao Usar Rails E Rspec - Rogerio Medeiros</title>
+        <meta name="author" content="Rogerio Medeiros">
+        
+        <meta name="description" content="ruby rails git linux ubuntu lol rogerio medeiros rvm github argerim">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://argerim.github.io/blog/2012/03/27/algumas-dicas-ao-usar-rails-e-rspec">
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="Rogerio Medeiros" type="application/atom+xml">
+    </head>
+
+
+    <body >
+
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">Rogerio Medeiros</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/cv/">C.V.</a></li>
+</ul>
+</nav>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">Algumas Dicas Ao Usar Rails E Rspec</h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2012-03-27T13:23:00-03:00" pubdate><i class="fa fa-calendar"></i> Mar 27th, 2012</time>
+
+
+
+
+            
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p>Antes de começar seria bom dar uma olhada <a href="/blog/2012/03/15/preparando-sua-aplicacao-rails-para-testes-com-guard-e-rspec">nesse meu post</a></p>
+
+<p>Esperando que você tenha lido o post do link acima, vamos fazer uma pequena modificação no arquivo gemfile, ficando agora assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s2">&quot;rspec-rails&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; 2.6&quot;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-rspec&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora o porque de ter adicionado o :development, foi simplesmente para termos alguns benefícios do Rspec, onde ao criarmos um model, controller ou o próprio scaffold, também será gerado seus arquivos de teste.</p>
+
+<p>Faça os seguintes comandos e veja as saídas:</p>
+
+<pre><code>rails g controller post index
+rails g model post title:string body:text
+rails g scaffold post title:string body:text
+</code></pre>
+
+<p>Se tudo ocorreu como o esperado você dete ter visto pelo menos esta saída:</p>
+
+<pre><code>invoke  active_record
+create    db/migrate/20120327143756_create_posts.rb
+create    app/models/post.rb
+invoke    rspec
+create      spec/models/post_spec.rb
+</code></pre>
+
+<p>Observe que foi criado um arquivo post_spec.rb dentro da pasta spec/models.</p>
+
+<p>Pegando como exemplo somente o comando de criação do model, se executarmos o comando guard, devemos ter a seguinte saída:</p>
+
+<pre><code>Pending:
+Post add some examples to (or delete) /home/rogerio/projetos/rspec_test/spec/models/post_spec.rb
+    # No reason given
+    # ./spec/models/post_spec.rb:4
+
+Finished in 0.00026 seconds
+1 example, 0 failures, 1 pending
+Bye bye...
+</code></pre>
+
+<p>Acima ele diz que existe uma pendência, isto é claro, pois temos somente um arquivo base para criarmos nossos testes, então vamos colocar uma simples validação dentro do model post:</p>
+
+<pre><code>validate_presence_of :title
+</code></pre>
+
+<p>Essa validação diz que não é possivel cadastrar um post com título em branco, vamos fazer o teste para criar um Post.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Post</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be valid&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s2">&quot;My first Post&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@post</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora vamos preparar nosso banco de dados para executar o teste, abra o terminal e execute o comando:</p>
+
+<pre><code>rake db:migrate RAILS_ENV=test
+</code></pre>
+
+<p>Logo em seguida execute o comando guard, certamente nosso teste irá passar, vamos fazer a seguinte modificação na validação, de modo que irá quebrar nosso teste, adicione depois do campo title, o body, ficando assim:</p>
+
+<pre><code>validate_presence_of :title, :body
+</code></pre>
+
+<p>Agora nosso teste não esta passando, então vamos arrumar isso, ficando agora assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Post</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be valid&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s2">&quot;My first Post&quot;</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="s1">&#39;Help me&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@post</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Vamos adicionar um teste que verifica se o title esta nil:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Post</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be invalid without a title&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="s2">&quot;Help me&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="c1">#@post.should be_invalid(:title) uma pequena correção aqui bem observada pelo</span>
+</span><span class='line'>      <span class="c1">#companheiro de trabalho Pedro Nascimento, be_invalid é usando com callbacks, o correto</span>
+</span><span class='line'>      <span class="c1">#é assim:</span>
+</span><span class='line'>      <span class="vi">@post</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>E este é nosso arquivo final:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Post</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be valid&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s2">&quot;My first Post&quot;</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="s2">&quot;Help me&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@post</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be invalid without a title&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="s2">&quot;Help me&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="c1">#@post.should be_invalid(:title) uma pequena correção aqui bem observada pelo</span>
+</span><span class='line'>      <span class="c1">#companheiro de trabalho Pedro Nascimento, be_invalid é usando com callbacks, o correto</span>
+</span><span class='line'>      <span class="c1">#é assim:</span>
+</span><span class='line'>      <span class="vi">@post</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ficam as dicas:</p>
+
+<p>Ao ver o before em um teste fique sabendo que ele contem condições que serão executadas antes do teste.</p>
+
+<p>O it é sempre uma especificação, normalmente validando algo, que sempre esta associada a um describe.</p>
+
+<p>O describe contem uma ou várias especificações, validando no final um determinado contexto.</p>
+
+<p>Tente fazer seus teste sempre em inglês.</p>
+
+<p>Faça primeiro os testes, depois code.</p>
+
+<p>Além disso, poderiamos deixar o código mais dry usando o remarkable ou shoulda, que podemos integrar com o rspec, facilitando quando vamos fazer validação, um exemplo esta logo abaixo de como seria escrito o teste para validar o título do post:</p>
+
+<pre><code>it {should validate_presence_of :title }
+</code></pre>
+
+<p>Simples e fácil lol.</p>
+
+
+
+</article>
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--unavailable hire--vibrant">
+    
+        Not looking for new opportunities at this time
+    
+</div>
+
+
+        </section>
+    
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        
+        <li><a class="github" href="//github.com/argerim"><i class="fa fa-github"></i> Github</a></li>
+        
+        
+        
+        <li><a class="linkedin" href="//linkedin.com/in/argerim"><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+        
+        
+        
+        <li><a class="twitter" href="//twitter.com/argerimsf"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
+</section>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2012/06/23/criando-e-manipulando-string-com-gsub-em-lua/">Criando E Manipulando String Com Gsub Em Lua</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/26/minha-mais-nova-gem-address-by-cep/">Minha Mais Nova Gem Address By Cep</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/15/cont-preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/">Cont Preenchendo ComboBox Com Cidades De Acordo Com O Estado Selecionado Em Rails</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/13/exibindo-versao-ruby-gemset-e-branch-atual-no-terminal/">Exibindo Versao Ruby Gemset E Branch Atual No Terminal</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/11/um-mes-de-rio-de-janeiro/">Um Mes De Rio De Janeiro</a>
+        </li>
+        
+    </ul>
+</section>
+
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/argerim" title="@argerim on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Latest Tweets
+        
+        <small class="pull-right">
+            <a class="btn" href="//twitter.com/argerimsf" title="@argerimsf on Twitter" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/argerimsf"  data-widget-id="597899201150869504"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @argerimsf</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <p class="footer__copyright">
+    All content copyright Rogerio Medeiros.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div>
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--unavailable hire--vibrant">
+    
+        Not looking for new opportunities at this time
+    
+</div>
+
+</div>
+        </div>
+        
+    </div>
+</footer>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-29610246-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'meubloglol';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://argerim.github.io/blog/2012/03/27/algumas-dicas-ao-usar-rails-e-rspec/';
+        var disqus_url = 'http://argerim.github.io/blog/2012/03/27/algumas-dicas-ao-usar-rails-e-rspec/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'argerim',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>

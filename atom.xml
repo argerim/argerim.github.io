@@ -1,0 +1,2334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title><![CDATA[Rogerio Medeiros]]></title>
+    <link href="http://argerim.github.io/atom.xml" rel="self"/>
+    <link href="http://argerim.github.io/"/>
+    <updated>2015-09-18T15:46:23-03:00</updated>
+    <id>http://argerim.github.io/</id>
+    <author>
+        <name><![CDATA[Rogerio Medeiros]]></name>
+        <email><![CDATA[argerim@gmail.com]]></email>
+    </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
+
+    
+    <entry>
+        <title type="html"><![CDATA[Criando E Manipulando String Com Gsub Em Lua]]></title>
+        <link href="http://argerim.github.io/blog/2012/06/23/criando-e-manipulando-string-com-gsub-em-lua/"/>
+        <updated>2012-06-23T20:09:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/06/23/criando-e-manipulando-string-com-gsub-em-lua</id>
+        <content type="html"><![CDATA[<p>Hum demorei bastante para fazer outro post rs,
+então vamos seguindo com minha linha de estudos para desenvolver para TV Digital.
+Se você ainda não tem Lua instalado na sua máquina pode fazer isso seguindo <a href="http://argerim.github.io/blog/2012/03/13/instalacao-lua-ubuntu-11-dot-10/">esse meu post</a>.</p>
+
+<p>Gsub é uma função que faz replace de palavras dentro de uma string.</p>
+
+<p>Agora vamos abrir o terminal e digitar o seguinte comando <code>lua</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='lua'><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Criando E Manipulando String Com Gsub&quot;</span> <span class="c1">--&gt; preenche a variável &quot;a&quot; com Criando E Manipulando String Com Gsub</span>
+</span><span class='line'><span class="n">b</span> <span class="o">=</span> <span class="nb">string.gsub</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s"> E&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">,&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span class='line'><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Você pode verificar que dessa forma a variavel a não foi alterada, para que isso aconteça é necessario fazer com que ela mesmo receba o retorno da função gsub:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='lua'><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="nb">string.gsub</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s"> E&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">,&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Você pode se aprofundar mais sobre como manipular string em Lua <a href="http://lua-users.org/wiki/StringLibraryTutorial">aqui</a>.</p>
+
+<p>Simple e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Minha Mais Nova Gem Address By Cep]]></title>
+        <link href="http://argerim.github.io/blog/2012/05/26/minha-mais-nova-gem-address-by-cep/"/>
+        <updated>2012-05-26T06:16:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/05/26/minha-mais-nova-gem-address-by-cep</id>
+        <content type="html"><![CDATA[<p>Address By Cep</p>
+
+<p>É uma gem que gera um model address e partial para cadastro de endereço de forma polimórfica, fazendo uma busca de um endereço ao web service dado um cep.</p>
+
+<p>Tudo sobre como usar aqui <a href="https://github.com/argerim/address_by_cep">Github</a>.</p>
+
+<p>Simples e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Cont Preenchendo ComboBox Com Cidades De Acordo Com O Estado Selecionado Em Rails]]></title>
+        <link href="http://argerim.github.io/blog/2012/05/15/cont-preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/"/>
+        <updated>2012-05-15T22:06:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/05/15/cont-preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails</id>
+        <content type="html"><![CDATA[<p>Seguindo esse meu <a href="http://argerim.github.io/blog/2012/03/29/preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/">post</a> e para tirar a <a href="http://groups.google.com/group/rails-br/browse_thread/thread/c7cca1985d0910bd?hl=pt-BR">duvida do Romulo e Tiago</a> no <a href="http://groups.google.com/group/rails-br?hl=pt-BR">grupo rails-br</a>, resolvi ir um pouco mais longe sobre <a href="http://argerim.github.io/blog/2012/03/29/preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/">o post de preencher combobox de acordo com o estado selecionado</a>.</p>
+
+<p>Vamos as seguintes alterações:</p>
+
+<p>1) Sigua esse <a href="http://argerim.github.io/blog/2012/04/19/dando-uma-limpada-no-log-no-modo-de-desenvolvimento-do-rails/">post</a>, pois vamos verificar o terminal para saber como esta sendo passado o parametro state_id;</p>
+
+<p>2) Veja que ao abrir a url do sistema e modificar o estado e cidade os mesmos não se mantem na página ao pressionar o botão de criar ou atualizar;</p>
+
+<p>3) Adicione: <code>attr_accessor :state_id</code> no model User e em seguida faça a seguinte mudança na partial form de User:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">###### Antes</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :state %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">collection_select</span><span class="p">(</span><span class="ss">:state</span> <span class="p">,</span><span class="ss">:id</span><span class="p">,</span> <span class="no">State</span><span class="o">.</span><span class="n">all</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT A STATE&#39;</span><span class="p">)</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>    <span class="err">$</span><span class="p">(</span><span class="n">document</span><span class="p">)</span><span class="o">.</span><span class="n">ready</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>   <span class="err">$</span><span class="p">(</span><span class="s2">&quot;#state_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">getCitiesByState</span><span class="p">(</span><span class="s2">&quot;id=&quot;</span><span class="o">+</span><span class="err">$</span><span class="p">(</span><span class="s2">&quot;#state_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="p">());</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'> <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'> <span class="c1">##### Depois</span>
+</span><span class='line'>   <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :state %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">collection_select</span> <span class="ss">:state_id</span><span class="p">,</span> <span class="no">State</span><span class="o">.</span><span class="n">all</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:selected</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">state_id</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT A STATE&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>    <span class="err">$</span><span class="p">(</span><span class="n">document</span><span class="p">)</span><span class="o">.</span><span class="n">ready</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>   <span class="err">$</span><span class="p">(</span><span class="s2">&quot;#user_state_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">getCitiesByState</span><span class="p">(</span><span class="s2">&quot;id=&quot;</span><span class="o">+</span><span class="err">$</span><span class="p">(</span><span class="s2">&quot;#user_state_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="p">());</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Com essas modificações podemos observar que agora o estado se mantem ao selecionar um no combobox, mas a cidade não. Veja que foi adicionado um parametro no collection, então essa sera uma das soluções para o caso cidade, vamos la.
+Criamos um helper e logo em seguida alteramos o form com o seguinte código:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">###helper</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">cities</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</span><span class='line'>      <span class="no">City</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;state_id = ?&quot;</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="c1">###form</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :city %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;% if @user.state_id.present? %&gt;</span>
+</span><span class='line'><span class="sx">      &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">collection_select</span> <span class="ss">:city_id</span><span class="p">,</span> <span class="n">cities</span><span class="p">(</span><span class="vi">@user</span><span class="o">.</span><span class="n">state_id</span><span class="p">),</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:selected</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city_id</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT A CITY&#39;</span><span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;% else %&gt;</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="sx">%= f.collection_select :city_id, [], :id, :name, :selected =</span><span class="o">&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city_id</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT FIRST STATE&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;% end %&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Essa opção <code>:selected</code> fará com que ao abrir a página se existir a cidade ela venha selecionada no combobox. Com isso concluimos a parte de cadastro.</p>
+
+<p>Agora podemos verificar que na parte de edição nada aparece, então ja que sabemos para que serve o <code>:selected</code> vamos as modificaçãoes:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :state %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">collection_select</span> <span class="ss">:state_id</span><span class="p">,</span> <span class="no">State</span><span class="o">.</span><span class="n">all</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:selected</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">present?</span> <span class="p">?</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">state_id</span> <span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">state_id</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT A STATE&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :city %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">      &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">collection_select</span> <span class="ss">:city_id</span><span class="p">,</span> <span class="n">cities</span><span class="p">(</span><span class="vi">@user</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">present?</span> <span class="p">?</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">state_id</span> <span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">state_id</span><span class="p">),</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:selected</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city_id</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">present?</span> <span class="o">||</span> <span class="vi">@user</span><span class="o">.</span><span class="n">state_id</span><span class="o">.</span><span class="n">present?</span> <span class="p">?</span> <span class="s1">&#39;SELECT A CITY&#39;</span> <span class="p">:</span> <span class="s1">&#39;SELECT FIRST STATE&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora cabe a você fazer as modificações necessárias. <a href="https://github.com/argerim/cities_by_state">O código esta no github</a>. Simple e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Exibindo Versao Ruby Gemset E Branch Atual No Terminal]]></title>
+        <link href="http://argerim.github.io/blog/2012/05/13/exibindo-versao-ruby-gemset-e-branch-atual-no-terminal/"/>
+        <updated>2012-05-13T04:22:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/05/13/exibindo-versao-ruby-gemset-e-branch-atual-no-terminal</id>
+        <content type="html"><![CDATA[<p>Se você é como eu e vive se perdendo sem saber em qual versão do ruby, ou qual gemset ou ate mesmo branch você esta, seus problemas acabaram-se</p>
+
+<p>Abra o terminal, execute o seguinte comando: <code>sudo vim ~/.bashrc</code>, e adicione a linha logo abaixo no final do arquivo:</p>
+
+<pre><code>export PS1='[\u@\h]\[\033[32m\]\w \[\033[1;33m\]$(rvm-prompt i v)\[\033[00m\]@\[\e[0;34m\]$(rvm gemset name) \[\033[0;31m\]$(__git_ps1 "(%s)")\[\033[00m\] '
+</code></pre>
+
+<p>Simples e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Um Mes De Rio De Janeiro]]></title>
+        <link href="http://argerim.github.io/blog/2012/05/11/um-mes-de-rio-de-janeiro/"/>
+        <updated>2012-05-11T23:20:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/05/11/um-mes-de-rio-de-janeiro</id>
+        <content type="html"><![CDATA[<p>Nossa passou bem rápido, novo trabalho, casa nova e cidade maravilhosa.
+Com a mudança acabou <a href="http://argerim.github.io/blog/2012/03/06/metas-a-cumprir-em-2012/">vindo</a>. Vamos ver se consigo completar todas até o fim do ano.</p>
+
+<p>Saudade bem grande da familia e namorada lol, mas ta dando pra aguentar. Uma coisa que posso garantir é que não quero nem saber do calor de Teresina kkkkkkkk.</p>
+
+<p>O pior é que não acredito que moro a 3 min da praia e ate hoje não fui, mas tambem fim de semana to acordando as 5 da tarde.</p>
+
+<p>Depois da ida ate o Costão - Niteroi, a galera da <a href="http://helabs.com.br/">Helabs</a> marcou uma corrida de Kart, irei aproveitar pra conhecer outro cantindo no Rio.</p>
+
+<p>Bom é isso ai, fuiz.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Minha Primeira Gem No GitHub]]></title>
+        <link href="http://argerim.github.io/blog/2012/05/07/minha-primeira-gem-no-github/"/>
+        <updated>2012-05-07T23:42:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/05/07/minha-primeira-gem-no-github</id>
+        <content type="html"><![CDATA[<p>Como sempre eu chorando muito e reclamando acabou que o <a href="https://twitter.com/lunks/">Pedro Nascimento</a> não me aguentou rs. Então sugeriu pra eu fazer uma gem.</p>
+
+<p>Então <a href="https://github.com/argerim/select2-rails">aqui esta ela</a>. Lá basicamente tem todos os detalhes da dela.</p>
+
+<p>Simples e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Url Amigavel Sem Plugin e Callback]]></title>
+        <link href="http://argerim.github.io/blog/2012/05/05/url-amigavel-sem-plugin-e-callback/"/>
+        <updated>2012-05-05T18:36:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/05/05/url-amigavel-sem-plugin-e-callback</id>
+        <content type="html"><![CDATA[<p>Certamente muito interessante este post do <a href="http://caironoleto.com/2012/04/15/poro-pure-old-ruby-object/">Cairo Noleto</a>. Depois de uma explicação dele comecei a usar em alguns projetos que fiz recentemente. Na verdade depois de encher muito o saco dele com minhas perguntas.</p>
+
+<p>Simples e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Criando Uma App Com Devise CanCan e Bootstrap]]></title>
+        <link href="http://argerim.github.io/blog/2012/04/28/criando-uma-app-com-devise-cancan-e-bootstrap/"/>
+        <updated>2012-04-28T20:25:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/04/28/criando-uma-app-com-devise-cancan-e-bootstrap</id>
+        <content type="html"><![CDATA[<p>Recentemente surgiu essa <a href="http://groups.google.com/group/gurupi_/browse_thread/thread/1e8d60e6b00e922d?hl=pt-BR">dúvida</a> no <a href="http://gurupi.org/">GuruPI</a>. Para tentar ajudar aqueles que estão começando, bem como meu colega que estava com a dúvida, resolvi criar esse post e colocar a app criada no <a href="https://github.com/">Github</a>.</p>
+
+<p>Sobre as gems usadas no post</p>
+
+<p><a href="https://github.com/plataformatec/devise">Devise</a></p>
+
+<p>Uma gem bastante fexível para autenticação em aplicações web, bem como genrenciamento dos dados do usuário.</p>
+
+<p><a href="https://github.com/ryanb/cancan">CanCan</a></p>
+
+<p>Gem que irá nos permitir fazer o gerenciamento de permissões para cada usuário do sistema.</p>
+
+<p><a href="">Twitter Bootstrap Rails</a></p>
+
+<p>Esta gem nos ajudará a reconfigurar toda a estrutura de layout padrão do Rails, nos dando uma visualização mais agradável da aplicação atraves do <a href="http://twitter.github.com/bootstrap/">bootstrap</a>.</p>
+
+<p>Seguindo com o nosso post, essa será mais ou menos a estrutura de nossa aplicação:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">User</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:role</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Role</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:users</span>
+</span><span class='line'>  <span class="n">has_and_belongs_to_many</span> <span class="ss">:permissions</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Permission</span>
+</span><span class='line'>  <span class="n">has_and_belongs_to_many</span> <span class="ss">:roles</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Vamos criar nossa aplicação com o seguinte comando:</p>
+
+<pre><code>rails new exemplo_cancan_e_devise
+</code></pre>
+
+<p>Depois de criar vamos deletar o seguinte arquivo public/index.html</p>
+
+<pre><code>rm public/index.html
+</code></pre>
+
+<p>Agora colocaremos as gems que iremos usar no arquivo Gemfile:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;devise&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;cancan&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;commonjs&#39;</span><span class="p">,</span> <span class="s1">&#39;= 0.2.0&#39;</span> <span class="c1"># essa foi pq deu um probleminha quando coloquei a gem do bootstrap</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;twitter-bootstrap-rails&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Com isso nossa app sabe que queremos usar essas gems, então vamos executar o seguinte comando, para podermos usar os geradores de cada gem:</p>
+
+<pre><code>bundle install
+</code></pre>
+
+<p>Eu iriei fazer um breve comentário sobre cada comando usado de cada gem aqui, para se aprofundar mais você deve ir ate a url colocada no inicio do post de cada gem.</p>
+
+<pre><code>Esse comando irar criar um arquivo com o nome devise.rb, dentro de config/initializers com as configurações padrões do devise e colocará devise_for :users, dentro do arquivo config/routes, assim teremos todas as rotas do devise.    
+rails generate devise:install
+
+Esse irá criar um model com as definições do devise, bem como uma migration com os campos padrões do devise
+rails generate devise user
+
+Comando que executa todas as migrations(nada mais é que uma forma organizada de criar tabelas, deletar, alterar ou criar novos campos no banco de dados).
+rake db:migrate
+
+Irá gerar a views usadas pelo devise dentro de app/views/devise
+rails generate devise:views
+
+Como esse comando vamos criar um controller dentro da pasta app/controllers, assim poderemos acessar alguns dados do usuário nas views que o devise nao cria.
+rails g controller users
+
+Aqui o cancan cria uma classe dentro da pasta models com o nome ability, essa classe irá manter, gerenciar as permissões em cada usuário
+rails g cancan:ability
+
+Com o comando scaffold eu posso criar um CRUD rapidamente, passando o nome e logo em seguida os campos com seus tipos.
+Aqui ele cria um controller um model uma migration com o campo name do tipo string
+rails g scaffold roles name:string
+
+O paramentro role:references irar criar um campo role_id do tipo inteiro dentro da tabela e adiciona belongs_to role, dentro do model Permission
+rails g scaffold permissions action:string subject_class:string role:references
+
+rake db:migrate
+
+Com isso vamos colocar os arquivos js, bem como suas chamadas dentro do arquivo application.js encontrado em app/assets/javascritps e de css em app/assets/stylesheets do boostrap.
+rails g bootstrap:install
+
+Aqui estou criando um arquivo com nome application com o css do boostrap dentro de views/layouts
+rails g bootstrap:layout application fixed
+
+Esses comando da gem bootstrap ira varer as tabelas e inserir dentro das views de cada pasta passada, dentro de app/views, substituindo as tags em html e css, colocando as do boostrap em cada campo da tabela.
+rails g bootstrap:themed Users
+rails g bootstrap:themed Roles
+rails g bootstrap:themed Permissions
+</code></pre>
+
+<p>Agora vamos criar 2 migrations uma para adicionar role_id dentro da tabela users e a outra para fazer o gerenciamento de muitos para muitos entre Permission e Role.</p>
+
+<pre><code>rails g migration add_role_id_to_users
+rails g migration create_table_permissions_roles
+</code></pre>
+
+<p>Abra os arquivos que se encontram em db/migrate e modifique-os:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>  <span class="n">add_column</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:role_id</span><span class="p">,</span> <span class="ss">:integer</span> <span class="c1">#adicionando coluna role_id do tipo inteiro na tabela users</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">create_table</span> <span class="ss">:permissions_roles</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="kp">false</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">t</span><span class="o">.</span><span class="n">integer</span> <span class="ss">:permission_id</span>
+</span><span class='line'>  <span class="n">t</span><span class="o">.</span><span class="n">integer</span> <span class="ss">:role_id</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="c1">#criando a tabela permissions_roles, o id =&gt; false, estou dizendo para o rails nao criar a tabela com o campo id, e lembrando que nossa tabela muitos para muitos o nome deve ser em ordem alfabetica dos models</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Execute novamente:</p>
+
+<pre><code>rake db:migrate
+</code></pre>
+
+<p>Depois de tudo isso feito nossa aplicação esta quase pronta, faltando apenas algumas validações e modificações no layout e a configuração do arquivo ability.</p>
+
+<p>Começaremos pelas validações e relacionamentos, como existia a necessidade de termos a permissão para cada view no banco, apareceu o relacionamento muitos para muitos entre Permission e Role, logo vamos deixa-los assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Permission</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">has_and_belongs_to_many</span> <span class="ss">:roles</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">validates_uniqueness_of</span> <span class="ss">:action</span><span class="p">,</span> <span class="ss">:scope</span> <span class="o">=&gt;</span> <span class="ss">:subject_class</span>
+</span><span class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:action</span><span class="p">,</span> <span class="ss">:subject_class</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Role</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:dependent</span> <span class="o">=&gt;</span> <span class="ss">:restrict</span>
+</span><span class='line'>  <span class="n">has_and_belongs_to_many</span> <span class="ss">:permissions</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:permissions</span>
+</span><span class='line'>  <span class="n">validates_uniqueness_of</span> <span class="ss">:name</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Aproveitando vamos colocar também no model User.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="c1"># Include default devise modules. Others available are:</span>
+</span><span class='line'>  <span class="c1"># :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable</span>
+</span><span class='line'>  <span class="n">devise</span> <span class="ss">:database_authenticatable</span><span class="p">,</span> <span class="ss">:registerable</span><span class="p">,</span>
+</span><span class='line'>         <span class="ss">:recoverable</span><span class="p">,</span> <span class="ss">:rememberable</span><span class="p">,</span> <span class="ss">:trackable</span><span class="p">,</span> <span class="ss">:validatable</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Setup accessible (or protected) attributes for your model</span>
+</span><span class='line'>  <span class="n">attr_accessible</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">:password_confirmation</span><span class="p">,</span> <span class="ss">:remember_me</span><span class="p">,</span> <span class="ss">:role_id</span>
+</span><span class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:role_id</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:role</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Explicando:</p>
+
+<p>Com o has_and_belongs_to_many, estou dizendo que existe um relacionameto muitos para muitos.</p>
+
+<p>has_many :users, :dependent => :restrict, aqui estou dizendo que Role pode ter muitos usuários, mas que se existir algum usuário com um role, esse role nao pode ser deletado(:dependent => :restrict).</p>
+
+<p>belongs_to aqui entende-se que dentro dessa tabela que o usa nos temos um campo id de outra tabela.</p>
+
+<p>validates_uniqueness_of :action, :scope => :subject_class, aqui eu estou dizendo que o campo action deve ser unico e passando :scope eu faço uma verificação de exclusividade com o campo subject_class, assim eu nao vou poder ter 2x action index para subject_class User. Isso simplesmente irá evitar de termos 2x a mesma permissão dentro de Role.</p>
+
+<p>validates_presence_of aqui ele verifica se o campo foi preenchido.</p>
+
+<p>Assim como o cancan, o <a href="http://rogeriolol.heroku.com/blog/2012/02/14/tratando-dependent-restrict-no-rails/">:dependent => :restrict</a> gera uma exception, fazendo com que a aplicação não tenha um comportamento adequado, para ajustarmos isso, adicionamos os seguintes códigos dentro de app/controllers/application_controller.rb</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">rescue_from</span> <span class="no">CanCan</span><span class="o">::</span><span class="no">AccessDenied</span> <span class="k">do</span> <span class="o">|</span><span class="n">exception</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">redirect_to</span> <span class="n">root_url</span><span class="p">,</span> <span class="ss">:alert</span> <span class="o">=&gt;</span> <span class="n">exception</span><span class="o">.</span><span class="n">message</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">rescue_from</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">DeleteRestrictionError</span> <span class="k">do</span> <span class="o">|</span><span class="n">exception</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="ss">:back</span><span class="p">,</span> <span class="ss">:alert</span> <span class="o">=&gt;</span> <span class="n">exception</span><span class="o">.</span><span class="n">message</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora vamos até o arquivo app/models/ability.rb e modifica-lo:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Ability</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">CanCan</span><span class="o">::</span><span class="no">Ability</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">can</span> <span class="ss">:manage</span><span class="p">,</span> <span class="ss">:all</span> <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">role</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;admin&#39;</span>
+</span><span class='line'>    <span class="n">user</span><span class="o">.</span><span class="n">role</span><span class="o">.</span><span class="n">permissions</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">permission</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">can</span> <span class="n">permission</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">to_sym</span><span class="p">,</span> <span class="n">permission</span><span class="o">.</span><span class="n">subject_class</span><span class="o">.</span><span class="n">constantize</span> <span class="k">do</span>
+</span><span class='line'>          <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">nil?</span> <span class="o">||</span> <span class="n">user</span><span class="o">.</span><span class="n">role_id?</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>O que basicamente ele faz é verifica se o role do usuario logado é admin, se for o usuário tera todas as permissões na aplicação, agora senão for admin, ele irá verificar as permissões do usuário para cada action em cada model.</p>
+
+<p>Agora vamos fazer as modificações na view devise/registration/edit.html.erb e new.html.erb, para podermos modificar e adicionar o role do usuário, adicione o seguinte trecho:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;control-group&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= f.label :role_id, :class =</span><span class="o">&gt;</span> <span class="s1">&#39;control-label&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;div class=&quot;controls&quot;&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.collection_select :role_id, roles, :id, :name, :include_blank =</span><span class="o">&gt;</span> <span class="s2">&quot;--- Select ---&quot;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hum têm alguns helpers que devem ser criados, vamos ao arquivo app/helpers/application_helper.rb e coloque isso:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">get_model_names_sub</span>
+</span><span class='line'>      <span class="no">Dir</span><span class="o">[</span><span class="s1">&#39;app/models/*.rb&#39;</span><span class="o">].</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;.*&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">camelize</span><span class="o">.</span><span class="n">constantize</span><span class="o">.</span><span class="n">name</span> <span class="p">}</span><span class="o">.</span><span class="n">reject!</span><span class="p">{</span><span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="n">m</span><span class="o">.</span><span class="n">constantize</span><span class="o">.</span><span class="n">superclass</span> <span class="o">!=</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">roles</span>
+</span><span class='line'>  <span class="no">Role</span><span class="o">.</span><span class="n">all</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>O primeiro me retorna todos os Models da aplicação e o segundo todos os roles.</p>
+
+<p>Seguindo a leitura da <a href="http://groups.google.com/group/gurupi_/browse_thread/thread/1e8d60e6b00e922d?hl=pt-BR">dúvida</a> do meu colega, tem-se uma imagem, como eu não queria criar uma tabela para fazer os gerenciamentos dos models da app, pensei em usar somente um metodo para fazer isso é aqui que entra o helper get_model_names_sub lol.</p>
+
+<p>Abrimos o arquivo _form.html.erb da pasta views/roles e modificamos:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= form_for @role, :html =</span><span class="o">&gt;</span> <span class="p">{</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;form-horizontal&#39;</span> <span class="p">}</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;fieldset&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="n">legend</span><span class="o">&gt;&lt;</span><span class="sx">%= controller.action_name.capitalize %&gt; /Role&lt;/legend&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sx">    &lt;div class=</span><span class="s2">&quot;control-group&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="sx">%= f.label :name, :class =</span><span class="o">&gt;</span> <span class="s1">&#39;control-label&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">      &lt;div class=&quot;controls&quot;&gt;</span>
+</span><span class='line'>        <span class="o">&lt;</span><span class="sx">%= f.text_field :name, :class =</span><span class="o">&gt;</span> <span class="s1">&#39;text_field&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">      &lt;/div&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">  &lt;% get_model_names_sub.each do |models_names| %&gt;    </span>
+</span><span class='line'><span class="sr">    &lt;div class=&quot;control-group&quot;&gt;</span>
+</span><span class='line'><span class="sr">      &lt;%= field_set_tag models_names do %&gt;</span>
+</span><span class='line'><span class="sr">        &lt;% Permission.where(:subject_class =&gt; models_names).each do |permission| %&gt;</span>
+</span><span class='line'><span class="sr">          &lt;label class=&quot;checkbox&quot;&gt;</span>
+</span><span class='line'><span class="sr">            &lt;%= check_box_tag &#39;role[permission_ids][]&#39;, permission.id, @role.permissions.include?(permission) %&gt;</span>
+</span><span class='line'><span class="sr">            &lt;%= permission.action %&gt;      </span>
+</span><span class='line'><span class="sr">          &lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+</span><span class='line'>        <span class="o">&lt;%</span><span class="k">end</span><span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">      &lt;%end%&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span><span class='line'><span class="sr">  &lt;%end%&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">    &lt;div class=&quot;form-actions&quot;&gt;</span>
+</span><span class='line'><span class="sr">      &lt;%= f.submit nil, :class =&gt; &#39;btn btn-primary&#39; %&gt;</span>
+</span><span class='line'><span class="sr">      &lt;%= link_to &#39;Cancel&#39;, roles_path, :class =&gt; &#39;btn&#39; %&gt;</span>
+</span><span class='line'><span class="sr">    &lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sr">/fieldset&gt;</span>
+</span><span class='line'><span class="sr">&lt;% end %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ficou um pouco feio, mas o post ja estava muito grande, então vamos seguindo.</p>
+
+<p>Eu criei um arquivo seed, então é so dar uma olhada <a href="https://github.com/argerim/Exemplo-CanCan-e-Devise">aqui</a>, para os que não sabem esse arquivo serve para popular o banco de dados e fica dentro da pasta db. O comando é o seguinte:</p>
+
+<pre><code>rake db:seed
+</code></pre>
+
+<p>Ah falta modificar o menu, abra o arquivo app/layouts/application.html.erb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>        <span class="o">&lt;</span><span class="sx">% if </span><span class="n">user_signed_in?</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">          &lt;ul class=&quot;nav&quot;&gt;</span>
+</span><span class='line'>            <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="sx">%= link_to &quot;Users&quot;, users_path if can? :read, &#39;User&#39; %&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="sx">            &lt;li&gt;&lt;%=</span> <span class="n">link_to</span> <span class="s2">&quot;Roles&quot;</span><span class="p">,</span> <span class="n">roles_path</span> <span class="k">if</span> <span class="n">can?</span> <span class="ss">:read</span><span class="p">,</span> <span class="s1">&#39;Role&#39;</span> <span class="sx">%&gt;&lt;/li&gt;</span>
+</span><span class='line'>            <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="sx">%= link_to &quot;Permissions&quot;, permissions_path if can? :read, &#39;Permission&#39; %&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="sx">          &lt;/ul&gt;</span>
+</span><span class='line'><span class="sx">          &lt;ul class=</span><span class="s2">&quot;nav pull-right&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>            <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="sx">%= link_to current_user.email, edit_user_registration_path %&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="sx">            &lt;li&gt;&lt;%=</span> <span class="n">link_to</span> <span class="s2">&quot;Logout&quot;</span><span class="p">,</span> <span class="n">destroy_user_session_path</span><span class="p">,</span> <span class="ss">:method</span> <span class="o">=&gt;</span> <span class="ss">:delete</span> <span class="sx">%&gt;&lt;/li&gt;</span>
+</span><span class='line'>          <span class="o">&lt;</span><span class="sr">/ul&gt;</span>
+</span><span class='line'><span class="sr">        &lt;%end%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Assim o menu só será exibido se o usuário tiver permissão, também ficou faltando adicionar load_and_authorize_resource dentro dos controllers, sem ele o cancan não vai poder fazer as verificações de permissão.</p>
+
+<p>E finalizando o nosso controller de users:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span><span class='line'>  
+</span><span class='line'> <span class="n">before_filter</span> <span class="ss">:authenticate_user!</span>
+</span><span class='line'> <span class="n">load_and_authorize_resource</span>
+</span><span class='line'>
+</span><span class='line'> <span class="k">def</span> <span class="nf">index</span>
+</span><span class='line'>    <span class="vi">@users</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">all</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="c1"># index.html.erb</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@users</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># GET /users/1</span>
+</span><span class='line'>  <span class="c1"># GET /users/1.json</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">show</span>
+</span><span class='line'>    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="c1"># show.html.erb</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@user</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Teve tambem essa pequena adição no arquivo app/views/layouts/application.html.erb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% flash.each </span><span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">msg</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%= content_tag :div, msg, :class =&gt;</span> <span class="s2">&quot;alert alert-</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;% end %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Essa dentro do arquivo app/assets/javascript/boostrap_and_overrides.css.less:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">.</span><span class="n">alert</span><span class="o">-</span><span class="n">notice</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">background</span><span class="o">-</span><span class="ss">color</span><span class="p">:</span> <span class="c1">#DFF0D8;</span>
+</span><span class='line'>    <span class="n">border</span><span class="o">-</span><span class="ss">color</span><span class="p">:</span> <span class="c1">#D6E9C6;</span>
+</span><span class='line'>    <span class="ss">color</span><span class="p">:</span> <span class="c1">#468847;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">.</span><span class="n">form</span><span class="o">-</span><span class="n">horizontal</span> <span class="o">.</span><span class="n">control</span><span class="o">-</span><span class="ss">group</span><span class="p">:</span><span class="n">before</span><span class="p">,</span> <span class="o">.</span><span class="n">form</span><span class="o">-</span><span class="n">horizontal</span> <span class="o">.</span><span class="n">control</span><span class="o">-</span><span class="ss">group</span><span class="p">:</span><span class="n">after</span> <span class="p">{</span>
+</span><span class='line'>    <span class="ss">content</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nb">display</span><span class="p">:</span> <span class="n">inline</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">.</span><span class="n">radio</span><span class="p">,</span> <span class="o">.</span><span class="n">checkbox</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nb">display</span><span class="p">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>E essa dentro do config/application.rb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ActionView</span><span class="o">::</span><span class="no">Base</span><span class="o">.</span><span class="n">field_error_proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">html_tag</span><span class="p">,</span> <span class="n">instance</span><span class="o">|</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">html_tag</span> <span class="o">=~</span> <span class="sr">/&lt;input/</span> <span class="o">||</span> <span class="n">html_tag</span> <span class="o">=~</span><span class="sr">/&lt;select/</span>
+</span><span class='line'>        <span class="sx">%|&lt;div class=&quot;control-group error&quot;&gt;</span><span class="si">#{</span><span class="n">html_tag</span><span class="si">}</span><span class="sx"> &lt;span class=&quot;help-inline&quot;&gt;</span><span class="si">#{</span><span class="o">[</span><span class="n">instance</span><span class="o">.</span><span class="n">error_message</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="si">}</span><span class="sx">&lt;/span&gt;&lt;/div&gt;|</span><span class="o">.</span><span class="n">html_safe</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">html_tag</span> <span class="o">=~</span> <span class="sr">/&lt;label/</span>
+</span><span class='line'>        <span class="sx">%|&lt;div class=&quot;control-group error&quot;&gt;</span><span class="si">#{</span><span class="n">html_tag</span><span class="si">}</span><span class="sx">|</span><span class="o">.</span><span class="n">html_safe</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>        <span class="n">html_tag</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Essa é parra mudar as mensagens de validação, as outras são mudanças no comportamento do css.</p>
+
+<p>Simples e fácil lol, o código esta <a href="https://github.com/argerim/Exemplo-CanCan-e-Devise">aqui</a>, espero não ter esquecido de nada.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Dando Uma Limpada No Log No Modo De Desenvolvimento Do Rails]]></title>
+        <link href="http://argerim.github.io/blog/2012/04/19/dando-uma-limpada-no-log-no-modo-de-desenvolvimento-do-rails/"/>
+        <updated>2012-04-19T20:51:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/04/19/dando-uma-limpada-no-log-no-modo-de-desenvolvimento-do-rails</id>
+        <content type="html"><![CDATA[<p>Ah não queria esperar até sexta-feira para um novo post, então vamos lá.</p>
+
+<p>Este é um post bem curto basicamente só iremos adicionar 2 gems no grupo development, aqui eu coloco o link para você pegar mais informações sobre as gems.</p>
+
+<p><a href="https://github.com/macournoyer/thin">THIN</a>, que irá remover essa parte:</p>
+
+<pre><code>[2012-04-19 20:37:38] WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
+</code></pre>
+
+<p>E a <a href="https://github.com/evrone/quiet_assets">QUIET ASSETS</a>, que irá remover essa:</p>
+
+<pre><code>Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-04-19 20:38:20 -0300
+Served asset /comments.js - 304 Not Modified (1ms)
+</code></pre>
+
+<p>Depois de dar uma lida sobre as gems, abra seu arquivo Gemfile e adicione as gems assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;thin&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;quiet_assets&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora seu log de development esta mais limpo, simples e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Continuando A Saga Sobre Ajax E Rails]]></title>
+        <link href="http://argerim.github.io/blog/2012/04/14/continuando-a-saga-sobre-ajax-e-rails/"/>
+        <updated>2012-04-14T20:49:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/04/14/continuando-a-saga-sobre-ajax-e-rails</id>
+        <content type="html"><![CDATA[<p>Bom pessoal, demorei um pouco a fazer outro post devido ter me mudado para o Rio de Janeiro lol, trabalhando aqui agora. Não sei se posso falar a empresa que estou agora, ah vou falar rs. Bom fui contratado pela Helabs empresa do <a href="https://twitter.com/smergulhao">Sylvestre Mergulhão</a> e <a href="https://twitter.com/rafaelp">Rafael Lima</a>. Não tenho nem palavras para expressar a felicidade, que dizer tenho sim &ldquo;lol&rdquo;. Será um experiência única então vamos ao post.</p>
+
+<p>Antes de começar esse post você deve seguir esse <a href="http://argerim.github.io/blog/2012/03/31/basico-de-jquery-e-ajax-em-rails/">aqui</a> e esse <a href="http://argerim.github.io/blog/2012/04/01/mensagem-de-erro-de-validacao-em-rails-como-um-helper/">outro</a></p>
+
+<p>Depois de completar os 2 posts acima, iremos colocar nosso projeto ajax e rails para exibir as mensagens de erro ao criar um post, bem como a mensagem flash. Não é nada muito complicado so iremos fazer uma simples condição no arquivo /views/post/create.js.erb, adicionar uma nova div no form que irá exibir a mensagem de erro, adicionar a div para flash_notice na index de post e uma pequena alteração no controller de post ao criar um.</p>
+
+<p>Vamos comerçar com a parte de mensagem de erro, hum bom vamos fazer tudo logo, assim era como estava o arquivo create.js.erb de post:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;#comments&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="s1">&#39;&lt;%= escape_javascript(render(@comment)) %&gt;&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;#comments &gt; li&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">effect</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">,</span> <span class="p">{</span><span class="ss">color</span><span class="p">:</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="ss">mode</span><span class="p">:</span> <span class="s1">&#39;show&#39;</span><span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+</span><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;#comment_form &gt; form&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">reset</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Alteramos para:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% if </span><span class="vi">@post</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">any?</span> <span class="o">-</span><span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  /*Hide the flash notice div*/</span>
+</span><span class='line'><span class="sx">  $(&#39;#flash_notice&#39;).hide(300);</span>
+</span><span class='line'>
+</span><span class='line'><span class="sx">  /*Update the html of the div post_errors with the new one*/</span>
+</span><span class='line'><span class="sx">  $(&#39;#post_errors&#39;).html(&#39;&lt;%= escape_javascript(error_messages_for(@post))%&gt;</span><span class="s1">&#39;);</span>
+</span><span class='line'>
+</span><span class='line'><span class="s1">  /*Show the div post_errors*/</span>
+</span><span class='line'><span class="s1">  $(&#39;</span><span class="c1">#post_errors&#39;).show(300);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sx">% else </span><span class="o">-</span><span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  /*Hide the div post_errors*/</span>
+</span><span class='line'><span class="sx">  $(&#39;#post_errors&#39;).hide(300);</span>
+</span><span class='line'>
+</span><span class='line'><span class="sx">  /*Update the html of the div flash_notice with the new one*/</span>
+</span><span class='line'><span class="sx">  $(&#39;#flash_notice&#39;).html(&#39;&lt;%= escape_javascript(flash[:notice])%&gt;</span><span class="s1">&#39;);</span>
+</span><span class='line'>
+</span><span class='line'><span class="s1">  /*Show the flash_notice div*/</span>
+</span><span class='line'><span class="s1">  $(&#39;</span><span class="c1">#flash_notice&#39;).show(300);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="err">$</span><span class="p">(</span><span class="s1">&#39;#posts&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="s1">&#39;&lt;%= escape_javascript(render(@post)) %&gt;&#39;</span><span class="p">);</span>
+</span><span class='line'>  <span class="err">$</span><span class="p">(</span><span class="s1">&#39;#posts &gt; li&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">effect</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">,</span> <span class="p">{</span><span class="ss">color</span><span class="p">:</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="ss">mode</span><span class="p">:</span> <span class="s1">&#39;show&#39;</span><span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+</span><span class='line'>  <span class="err">$</span><span class="p">(</span><span class="s1">&#39;#post_form &gt; form&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">reset</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="sx">% end </span><span class="o">-%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Aqui eu ja inclui a parte para exibir a mensagem flash, veja que agora nós temos uma condição, que verifica se algum erro foi lançado, se existe ele dar um hide na div de flash_notice, atualiza nossa div de post_erros com o helper que eu criei <a href="http://rogeriolol.heroku.com/blog/2012/04/01/mensagem-de-erro-de-validacao-em-rails-como-um-helper/">aqui</a> e exibe-a em seguida, senão ele da um hide na div de post_erros, atualiza a div da mensagem flash, mostra o objeto criado e limpa o formulário.</p>
+
+<p>Com nosso arquivo create.js.erb no ponto, vamos adicionar as divs nas views, primeiro abra o form de post e deixe-o assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= form_for(@post, :remote =</span><span class="o">&gt;</span> <span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sx">  &lt;div id= &quot;post_errors&quot; style=&quot;display:none&quot;&gt;</span><span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">  &lt;div class=&quot;field&quot;&gt;</span>
+</span><span class='line'><span class="sr">    &lt;%= f.label :title %&gt;&lt;br /</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.text_field :title %&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'><span class="sx">  &lt;div class=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :email %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">text_field</span> <span class="ss">:email</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :content %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">text_area</span> <span class="ss">:content</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;actions&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sx">% end </span><span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Nossa única alteração foi a inclusão da div para exibir as mensagens de erro.
+Em seguida vamos abrir a index de post e incluir a div para a mensagem flash:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;flash_notice&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;display:none&quot;</span><span class="o">&gt;&lt;</span><span class="sr">/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;h1&gt;Posts&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;timer&quot;</span><span class="o">&gt;</span><span class="no">Rendered</span> <span class="ss">at</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= Time.now %&gt;&lt;/div&gt; </span>
+</span><span class='line'><span class="sx"> </span>
+</span><span class='line'><span class="sx">&lt;div id=</span><span class="s2">&quot;post_form&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= render &#39;form&#39; %&gt;</span>
+</span><span class='line'><span class="sx">&lt;/div&gt;</span>
+</span><span class='line'><span class="sx"> </span>
+</span><span class='line'><span class="sx">&lt;ul id=</span><span class="s2">&quot;posts&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= render :partial =</span><span class="o">&gt;</span> <span class="vi">@posts</span><span class="o">.</span><span class="n">reverse</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>E finalizando abra o controller de post e deixei-o assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">create</span>
+</span><span class='line'>    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:post</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+</span><span class='line'>      <span class="k">if</span> <span class="vi">@post</span><span class="o">.</span><span class="n">save</span>
+</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="p">{</span> <span class="n">redirect_to</span> <span class="n">posts_url</span> <span class="p">}</span>
+</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@post</span><span class="p">,</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:created</span><span class="p">,</span> <span class="ss">location</span><span class="p">:</span> <span class="vi">@post</span> <span class="p">}</span>
+</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">js</span>
+</span><span class='line'>        <span class="n">flash</span><span class="o">[</span><span class="ss">:notice</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;Post was successfully created.&#39;</span>
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">action</span><span class="p">:</span> <span class="s2">&quot;index&quot;</span> <span class="p">}</span>
+</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@post</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:unprocessable_entity</span> <span class="p">}</span>
+</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">js</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Fiz uma pequena alteção, pois como estava antes não exibia a mensagem flash. Agora você ja pode verificar se esta exibindo ou não as mensagens de erro e mensagem flash, lembrando que você deve seguir esse <a href="http://argerim.github.io/blog/2012/03/31/basico-de-jquery-e-ajax-em-rails/">aqui</a> e esse <a href="http://argerim.github.io/blog/2012/04/01/mensagem-de-erro-de-validacao-em-rails-como-um-helper/">outro</a>, antes de começar aqui.</p>
+
+<p>Simples e fácil lol</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Mensagem De Erro De Validação Em Rails Como Um Helper]]></title>
+        <link href="http://argerim.github.io/blog/2012/04/01/mensagem-de-erro-de-validacao-em-rails-como-um-helper/"/>
+        <updated>2012-04-01T09:54:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/04/01/mensagem-de-erro-de-validacao-em-rails-como-um-helper</id>
+        <content type="html"><![CDATA[<p>Estava eu tentando deixar mais dry meu código quando encontrei esse Episodio no <a href="http://asciicasts.com/episodes/211-validations-in-rails-3">asciicasts</a></p>
+
+<p>Por padrao o rails gera mais ou menos isso dentro de cada form:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% if </span><span class="vi">@objeto</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">any?</span> <span class="sx">%&gt;  </span>
+</span><span class='line'><span class="sx">  &lt;div id=&quot;errorExplanation&quot;&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;&lt;</span><span class="sx">%= pluralize(@objeto.errors.count, &quot;error&quot;) %&gt; prohibited this objeto from being saved:&lt;/h2&gt;  </span>
+</span><span class='line'><span class="sx">    &lt;ul&gt;  </span>
+</span><span class='line'><span class="sx">    &lt;% @objeto.errors.full_messages.each do |msg| %&gt;  </span>
+</span><span class='line'><span class="sx">      &lt;li&gt;&lt;%=</span> <span class="n">msg</span> <span class="sx">%&gt;&lt;/li&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">% end %&gt;  </span>
+</span><span class='line'><span class="sx">    &lt;/ul&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sr">/div&gt;  </span>
+</span><span class='line'><span class="sr">  &lt;% end %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ai eu disse nossa que maravilha esse episodio. Só que pensando um pouco mais: Hum vou ter que criar uma pasta e depois uma view para fazer isso em meus projetos e ainda assim chamar dentro de cada form:</p>
+
+<pre><code>&lt;%= render "shared/error_messages", :target =&gt; @user %&gt;
+</code></pre>
+
+<p>Dai eu disse: Hum vou fazer um helper para isso e chama-lo em cada form:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">error_messages_for</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>       
+</span><span class='line'>  <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">any?</span>         
+</span><span class='line'>      <span class="n">html</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;&lt;div id=&#39;error_explanation&#39;&gt;</span>
+</span><span class='line'><span class="s2">     &lt;h2&gt;</span><span class="si">#{</span><span class="n">pluralize</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> prohibited this record from being saved:&lt;/h2&gt;  </span>
+</span><span class='line'><span class="s2">     &lt;ul&gt;&quot;</span>
+</span><span class='line'>      <span class="n">target</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">full_messages</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">msg</span><span class="o">|</span>
+</span><span class='line'>          <span class="n">html</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;&lt;li&gt;</span><span class="si">#{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&lt;/li&gt;&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>      <span class="n">html</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;&lt;/ul&gt;&lt;/div&gt;&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">html</span><span class="o">.</span><span class="n">html_safe</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Coloquei o nome de error_messages_for por que foi retirado do rails 3 senão me engano, bom alguem ja deve ter feito isso, mas fica ai a dica. Simples e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Sobre O Autor Do Blog]]></title>
+        <link href="http://argerim.github.io/blog/2012/04/01/sobre-o-autor-do-blog/"/>
+        <updated>2012-04-01T07:20:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/04/01/sobre-o-autor-do-blog</id>
+        <content type="html"><![CDATA[<p>NO SABADO PARA DOMINGO</p>
+
+<p>Fim de semana chegou e estou bastante entusiasmado com a volta aos estudos com testes em rails, passei de sabado para domingo acordado tirando umas dúvidas e como sempre, muitas ideias aparecendo e uma delas ja pela manha de domingo, puts eu ainda acordado, foi fazer um post sobre minha pessoa, pricipalmente na parte de desenvolvimento. Então vamos lá.</p>
+
+<p>UM POUCO SOBRE MINHA VIDA ANTES DA FACULDADE</p>
+
+<p>Queria começar agradecendo aos meus pais por sempre darem do bom e do melhor, não so nos estudos, mas em tudo mesmo, não tenho do que reclamar, esse foi um dos motivos de passar por varias escolas, dentre elas não posso esquecer do colegio Marista São Pio X em Balsas-MA, foi uma infancia fantastica.
+Até o fim do ensino médio, minha vida era so estudos, estudos mesmo, tinha o tempo de diversão, mas somente nas ferias rs. Tentando sempre dar o melhor de mim e mostrar aos meus pais que o que eles estavam fazendo era o melhor, apesar de todos falarem que era loucura o que estavam fazendo (Colocar eu e minha irma em outra cidade sozinhos para estudar, isso com 12 anos), que não iriamos dar valor. Fiz o melhor de mim, em todas as escolas que frequentei eu era um dos melhores alunos nao so nas nostas, como tambem no comportamento, algo que acabou refletindo na faculdade. Até aqui eu nao sabia nada de computadores, mas queria ser cientistas lol.</p>
+
+<p>OS LONGOS E INESQUECIVEIS 5 ANOS DA FACULDADE</p>
+
+<p>Antes de começar a faculdade eu mal sabia pegar em um mouse, escolhi o curso de Sistemas de Informação pela afinidade com a area de exatas, mas sabia qual era o focu do curso. Logo tudo que eu aprendi sobre desenvolvimento foi dentro da faculdade, onde apresentei meu TCC no ano de 2010. Estagiei em 4 empreas, as 2 primeiras dando aula de informatica basica, a 3ª e 4ª com desenvolvimento, comecei na 4ª empresa no inicio do ano de 2010, na qual depois de fazer uma pesquisa em qual linguagem iriamos desenvolver um sistema web (Java ou Ruby), o Dono acabou optando por Ruby, foi ai meu primeiro contato com a linguagem, cerca de 18 horas de aulas, agradeço a paciencia do <a href="https://twitter.com/lucasdecastro">Lucas de Castro</a>, que ministrou o curso, nossa enchi muito o saco dele, rs. Depois do curso tivemos que desenvolver o sistema web com framework Ruby on Rails, esse sistema nao terminamos, mas ainda consegui desenvolver nos 3 meses de estagio outros dois sistemas. Até aqui eu nao sabia nada de teste com ruby, nem mesmo com rails. Fiquei ate o meio do ano de 2010 desenvolvendo meu TCC, um pequeno aplicativo mobile usando JME, que por fim foi apresentado ainda no meio do ano.</p>
+
+<p>O MEU PRIMEIRO EMPREGO</p>
+
+<p>Como era periodo de eleição, pedi aos meu pais para ficar na minha cidade ate o termino da mesma. Depois voltei a capital (Teresina) e reiniciei os estudos em Ruby e Ruby on Rails, onde enchi muito o saco do pessoal do <a href="http://gurupi.org/">GuruPI (Grupo de Usuarios de Ruby do Piauí)</a>, principalmente no nosso grupo do google, em especial o <a href="https://twitter.com/caironoleto">Cairo Noleto</a> kkkkkkkkk. Surgiu uma oportunidade no grupo, enviei meu curriculo, la estava eu na entrevista lol, fiquei cerca de 3 meses em teste e 5 meses como efetivo. Desenvolvi 2 sistemas, como eu tinha tempo para estudar dentro da empresa, tive a iniciativa de começar a desenvolver os testes, em um deles fiz 80% dos testes dos controllers, mas acabei saindo da empresa por forças maiores, meus pais queriam me levar para minha cidade, e para eu ficar em Teresina, teria que me bancar. Fui a 2 entrevista e acabei ficando la, rs, foi muito engraçado a entrevista nesse empresa que me contratou, pegaram uma cadeira, me colocaram na frente do pc e eu ja estava ali lol, desenvolvendo, ja participei em N sistemas aqui e hoje alem de continuar desenvolvendo novos sistemas, faço a manutenção, na parte de codificar, do nosso principal sistema. Na empresa eu sou o menos experiente em desenvolvimento, mas acredito que seja o maior conhecedor na linguagem Ruby e framework Ruby on Rails. Estou hoje com 2 anos que conheço a linguagem e framework e com 6 meses que estudo testes, que seria desde quando entrei aqui, apesar do pessoal não praticar, algo que não dar para entender.</p>
+
+<p>MEU EU lol</p>
+
+<p>Não bebo (bebidas alcoolicas), não fumo, nunca usei drogas, sou catolico não muito praticante e amo minha Dondonzinha. Esse sou eu tentando sempre ser o melhor no que faço.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Básico de Jquery e Ajax Em Rails]]></title>
+        <link href="http://argerim.github.io/blog/2012/03/31/basico-de-jquery-e-ajax-em-rails/"/>
+        <updated>2012-03-31T00:25:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/03/31/basico-de-jquery-e-ajax-em-rails</id>
+        <content type="html"><![CDATA[<p>Este post tem por base o tutorial do <a href="http://notes.rehali.com/?p=97">rehali</a>.
+Então antes de começar você deve fazer primeiro o post dele.
+Seguindo sua linha de programação neste post irei implementar a funcionalidade de inserir os comentários em um artigo(post), com as mesmas funcionalidades que o rehali usou em seu <a href="http://notes.rehali.com/?p=97">artigo</a>: Jquery e Ajax.</p>
+
+<p>Vamos as alterações no post do <a href="http://notes.rehali.com/?p=97">rehali</a>, para em seguida implementar a nova funcionalidade de adicionar comentarios ao artigo.</p>
+
+<p>Abra o model de Post e adicione o seguinte metodo:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">info</span>
+</span><span class='line'>  <span class="s2">&quot;</span><span class="si">#{</span><span class="n">title</span><span class="si">}</span><span class="s2"> - [</span><span class="si">#{</span><span class="n">email</span><span class="si">}</span><span class="s2">]&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora abrimos o arquivo views/posts/_post.html.erb e modificamos a segunda linha, ficando agora assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= content_tag_for(:li, post) do %&gt;</span>
+</span><span class='line'><span class="sx">  &lt;p class=</span><span class="s2">&quot;title&quot;</span><span class="o">&gt;&lt;</span><span class="sx">%= link_to post.info, post %&gt;&lt;/p&gt;</span>
+</span><span class='line'><span class="sx">  &lt;p class=</span><span class="s2">&quot;content&quot;</span><span class="o">&gt;&lt;</span><span class="sx">%= truncate post.content %&gt;&lt;/p&gt;</span>
+</span><span class='line'><span class="sx">  &lt;span class=</span><span class="s2">&quot;posted_at&quot;</span><span class="o">&gt;</span><span class="no">Posted</span> <span class="n">at</span> <span class="o">&lt;</span><span class="sx">%= time_ago_in_words(post.created_at) %&gt; ago.</span>
+</span><span class='line'><span class="sx">  (&lt;%=</span> <span class="n">link_to</span> <span class="s1">&#39;Delete&#39;</span><span class="p">,</span> <span class="n">post</span><span class="p">,</span> <span class="ss">:confirm</span> <span class="o">=&gt;</span> <span class="s1">&#39;Are you sure?&#39;</span><span class="p">,</span> <span class="ss">:method</span> <span class="o">=&gt;</span> <span class="ss">:delete</span><span class="p">,</span> <span class="ss">:remote</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="sx">%&gt;)&lt;/span&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sx">% end </span><span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Aqui concluímos as alterações necessarias no post do <a href="http://notes.rehali.com/?p=97">rehali</a>, para colocarmos os comentarios. Mãos a obra lol.</p>
+
+<p>Criamos o scaffold de comentarios e geramos sua tabela:</p>
+
+<pre><code>rails g scaffold comment emai:string message:text references:post
+rake db:migrate
+</code></pre>
+
+<p>Abra o model de post e o arquivo config/routes.rb e adicione respectivamente:</p>
+
+<pre><code>has_many :comments #model post
+
+resources :posts do #aquivo routes
+  resources :comments
+end
+</code></pre>
+
+<p>Em seguida crie a partial que irá mostrar os comentarios dentro da pagina do artigo com o nome de _comment.html.erb dentro da pasta views/comments com o seguinte código:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= content_tag_for(:li, comment) do %&gt;</span>
+</span><span class='line'><span class="sx">  &lt;p class=</span><span class="s2">&quot;title&quot;</span><span class="o">&gt;&lt;</span><span class="sx">%= comment.email %&gt;: &lt;%=</span> <span class="n">comment</span><span class="o">.</span><span class="n">message</span> <span class="sx">%&gt;&lt;/p&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;posted_at&quot;</span><span class="o">&gt;</span><span class="no">Posted</span> <span class="n">at</span> <span class="o">&lt;</span><span class="sx">%= time_ago_in_words(comment.created_at) %&gt; ago.</span>
+</span><span class='line'><span class="sx">  (&lt;%=</span> <span class="n">link_to</span> <span class="s1">&#39;Delete&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="ss">:confirm</span> <span class="o">=&gt;</span> <span class="s1">&#39;Are you sure?&#39;</span><span class="p">,</span> <span class="ss">:method</span> <span class="o">=&gt;</span> <span class="ss">:delete</span><span class="p">,</span> <span class="ss">:remote</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="sx">%&gt;)&lt;/span&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sx">% end </span><span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Continuando, crie os arquivos create.js.erb e destroy.js.erb dentro da pasta views/comments com o seguinte código, respectivamente:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;#comments&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="s1">&#39;&lt;%= escape_javascript(render(@comment)) %&gt;&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;#comments &gt; li&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">effect</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">,</span> <span class="p">{</span><span class="ss">color</span><span class="p">:</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="ss">mode</span><span class="p">:</span> <span class="s1">&#39;show&#39;</span><span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+</span><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;#comment_form &gt; form&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">reset</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;#&lt;%= dom_id(@comment) %&gt;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">effect</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">,</span> <span class="p">{</span><span class="ss">color</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="ss">mode</span><span class="p">:</span> <span class="s1">&#39;hide&#39;</span><span class="p">},</span> <span class="mi">1200</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Abra o form de comentarios e deixe-o assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= form_for([@post, Comment.new], :remote =</span><span class="o">&gt;</span> <span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;div class=&quot;field&quot;&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :email %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">text_field</span> <span class="ss">:email</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :message %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">text_area</span> <span class="ss">:message</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;actions&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sx">% end </span><span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Em seguida vamos modificar o controller de comentarios, especificamente as actions create e destroy:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CommentsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span><span class='line'>  <span class="n">respond_to</span> <span class="ss">:js</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">create</span>
+</span><span class='line'>    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:post_id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@comment</span> <span class="o">=</span> <span class="vi">@post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:comment</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">respond_with</span><span class="p">(</span><span class="n">post_path</span><span class="p">(</span><span class="vi">@post</span><span class="p">))</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">destroy</span>
+</span><span class='line'>    <span class="vi">@comment</span> <span class="o">=</span> <span class="no">Comment</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@comment</span><span class="o">.</span><span class="n">destroy</span>
+</span><span class='line'>    <span class="n">respond_with</span><span class="p">(</span><span class="n">post_path</span><span class="p">(</span><span class="vi">@comment</span><span class="o">.</span><span class="n">post</span><span class="p">))</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>E para quase finalizar vamos abrir a view show de post e deixa-la exatamente assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;timer&quot;</span><span class="o">&gt;</span><span class="no">Rendered</span> <span class="ss">at</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= Time.now %&gt;&lt;/div&gt; </span>
+</span><span class='line'>
+</span><span class='line'><span class="sx">&lt;p&gt;</span>
+</span><span class='line'><span class="sx">  &lt;b&gt;Title:&lt;/b&gt;</span>
+</span><span class='line'><span class="sx">  &lt;%=</span> <span class="vi">@post</span><span class="o">.</span><span class="n">title</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="ss">Email</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/b&gt;</span>
+</span><span class='line'><span class="sr">  &lt;%= @post.email %&gt;</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="ss">Content</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/b&gt;</span>
+</span><span class='line'><span class="sr">  &lt;%= @post.content %&gt;</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="no">Add</span> <span class="no">New</span> <span class="no">Comment</span><span class="o">&lt;</span><span class="sr">/h2&gt;</span>
+</span><span class='line'><span class="sr">&lt;div id=&quot;comment_form&quot;&gt;</span>
+</span><span class='line'><span class="sr"> &lt;%= render &#39;comments/</span><span class="n">form</span><span class="s1">&#39; %&gt;</span>
+</span><span class='line'><span class="s1">&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="s1">&lt;ul id=&quot;comments&quot;&gt;</span>
+</span><span class='line'><span class="s1"> &lt;%= render @post.comments.reverse %&gt;</span>
+</span><span class='line'><span class="s1">&lt;/ul&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="s1">&lt;%= link_to &#39;</span><span class="no">Edit</span><span class="s1">&#39;, edit_post_path(@post) %&gt; |</span>
+</span><span class='line'><span class="s1">&lt;%= link_to &#39;</span><span class="no">Back</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">posts_path</span> <span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Quase tudo pronto. Aproveitando o css do artido do <a href="http://notes.rehali.com/?p=97">rehali</a>, abra o arquivo assets/stylesheets/comments.css.scss e adicione o seguinte código:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">html</span><span class="p">,</span> <span class="n">body</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">family</span><span class="p">:</span> <span class="no">Arial</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">size</span><span class="p">:</span> <span class="mi">12</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">textarea</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">family</span><span class="p">:</span> <span class="no">Arial</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">size</span><span class="p">:</span> <span class="mi">12</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="ss">width</span><span class="p">:</span> <span class="mi">500</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="ss">height</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">padding</span><span class="o">-</span><span class="ss">bottom</span><span class="p">:</span> <span class="mi">8</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">.</span><span class="n">textfield</span><span class="p">{</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">family</span><span class="p">:</span> <span class="no">Arial</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">size</span><span class="p">:</span> <span class="mi">14</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="ss">width</span><span class="p">:</span> <span class="mi">300</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">padding</span><span class="o">-</span><span class="ss">bottom</span><span class="p">:</span> <span class="mi">8</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="ss">border</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span> <span class="n">solid</span> <span class="n">black</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#comments ul {</span>
+</span><span class='line'>  <span class="ss">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="ss">padding</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#comments li {</span>
+</span><span class='line'>  <span class="n">margin</span><span class="o">-</span><span class="ss">left</span><span class="p">:</span> <span class="o">-</span><span class="mi">30</span><span class="n">pt</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">margin</span><span class="o">-</span><span class="ss">bottom</span><span class="p">:</span> <span class="mi">16</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="ss">padding</span><span class="p">:</span> <span class="mi">8</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">list</span><span class="o">-</span><span class="ss">style</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+</span><span class='line'>  <span class="ss">border</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span> <span class="n">solid</span> <span class="c1">#ccc;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#comments p {</span>
+</span><span class='line'>  <span class="ss">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#comments .title {</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">size</span><span class="p">:</span> <span class="mi">13</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">weight</span><span class="p">:</span> <span class="n">bold</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#comments .content {</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">size</span><span class="p">:</span> <span class="mi">12</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">margin</span><span class="o">-</span><span class="ss">top</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">margin</span><span class="o">-</span><span class="ss">bottom</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">.</span><span class="n">posted_at</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">size</span><span class="p">:</span> <span class="mi">8</span><span class="n">pt</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">text</span><span class="o">-</span><span class="ss">decoration</span><span class="p">:</span> <span class="n">italic</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">margin</span><span class="o">-</span><span class="ss">bottom</span><span class="p">:</span> <span class="mi">8</span><span class="n">px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#timer {</span>
+</span><span class='line'>  <span class="n">font</span><span class="o">-</span><span class="ss">size</span><span class="p">:</span> <span class="mi">8</span><span class="n">pt</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">text</span><span class="o">-</span><span class="ss">decoration</span><span class="p">:</span> <span class="n">italic</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora é so abrir o terminal e executar rails s. Simples e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Preenchendo ComboBox Com Cidades De Acordo Com O Estado Selecionado Em Rails]]></title>
+        <link href="http://argerim.github.io/blog/2012/03/29/preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/"/>
+        <updated>2012-03-29T22:27:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/03/29/preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails</id>
+        <content type="html"><![CDATA[<p>Vamos criar nossa aplicação e para ir mais rapido o scaffold de city, state e user.</p>
+
+<pre><code>rails new cities_by_state
+rails g scaffold state name:string
+rails g scaffold city name:string state:references
+rails g scaffold user name:string city:references
+rake db:migrate
+rm public/index.html
+</code></pre>
+
+<p>Abra o arquivo config/routes.rb e defina a pagina de user como inicial:</p>
+
+<pre><code>root :to =&gt; 'users#index'
+</code></pre>
+
+<p>Agora vamos starta a aplicação lol:</p>
+
+<pre><code>rails s
+</code></pre>
+
+<p>Abra agora o arquivo db/seeds.rb e adicione as seguinte linhas, para popular nosso banco:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">states</span> <span class="o">=</span> <span class="no">State</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">[</span><span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;Piauí&#39;</span><span class="p">},</span> <span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;Maranhão&#39;</span><span class="p">},</span> <span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;Pernambuco&#39;</span><span class="p">}</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">City</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">[</span>
+</span><span class='line'>              <span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ribeiro Gonçalves&#39;</span><span class="p">,</span> <span class="ss">:state</span> <span class="o">=&gt;</span> <span class="n">states</span><span class="o">.</span><span class="n">first</span><span class="p">},</span>
+</span><span class='line'>              <span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;Uruçuí&#39;</span><span class="p">,</span> <span class="ss">:state</span> <span class="o">=&gt;</span> <span class="n">states</span><span class="o">.</span><span class="n">first</span><span class="p">},</span>
+</span><span class='line'>              <span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;Teresina&#39;</span><span class="p">,</span> <span class="ss">:state</span> <span class="o">=&gt;</span> <span class="n">states</span><span class="o">.</span><span class="n">first</span><span class="p">}</span>
+</span><span class='line'>          <span class="o">]</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Execute o seguinte comando no terminal:</p>
+
+<pre><code>rake db:seed
+</code></pre>
+
+<p>Agora vamos abrir o arquivo _form.html.erb de user e colocar o combobox de state e city:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :state %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">collection_select</span><span class="p">(</span><span class="ss">:state</span> <span class="p">,</span><span class="ss">:id</span><span class="p">,</span> <span class="no">State</span><span class="o">.</span><span class="n">all</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT A STATE&#39;</span><span class="p">)</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>   <span class="o">&lt;</span><span class="sx">%= f.label :city %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">   &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">collection_select</span> <span class="ss">:city_id</span><span class="p">,</span> <span class="no">City</span><span class="o">.</span><span class="n">all</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT A CITY&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ainda não esta como queremos, então vamos fazer o metodo que irá buscar as cidades quando o combobox de estados for modificado, abrimos então o controller cities e adicionamos o seguinte código:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">cities_by_state</span>
+</span><span class='line'>    <span class="n">state_id</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">].</span><span class="n">to_i</span>
+</span><span class='line'>    <span class="n">cities</span> <span class="o">=</span> <span class="no">City</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:state_id</span> <span class="o">=&gt;</span> <span class="n">state_id</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">cty</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>    <span class="n">cities</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">city</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">cty</span> <span class="o">&lt;&lt;</span> <span class="p">{</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="n">city</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="ss">:n</span> <span class="o">=&gt;</span> <span class="n">city</span><span class="o">.</span><span class="n">name</span><span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="n">render</span> <span class="ss">:json</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:cty</span> <span class="o">=&gt;</span> <span class="n">cty</span><span class="o">.</span><span class="n">compact</span><span class="p">}</span><span class="o">.</span><span class="n">as_json</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Uma pequena modificação no arquivo config/routes.rb é necessária, pois temos que adicionar a rota para nosso metodo criado:</p>
+
+<pre><code>match "/cities_by_state" =&gt; "cities#cities_by_state"
+</code></pre>
+
+<p>O metodo cities_by_state simplesmente recebe um parametro enviado via js e faz uma busca de todas as cidades em relação ao id do estado que foi enviado, retornando um arquivo json com o id e nome das cidades.</p>
+
+<p>Quase finalizando criaremos agora nossos metodos js para fazer a busca e preenchimento ao modificar o combobox de estado. Adicione no final do arquivo _form.html.erb de user:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="err">$</span><span class="p">(</span><span class="n">document</span><span class="p">)</span><span class="o">.</span><span class="n">ready</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>   <span class="err">$</span><span class="p">(</span><span class="s2">&quot;#state_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">getCitiesByState</span><span class="p">(</span><span class="s2">&quot;id=&quot;</span><span class="o">+</span><span class="err">$</span><span class="p">(</span><span class="s2">&quot;#state_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="p">());</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">function</span> <span class="n">getCitiesByState</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="vg">$.</span><span class="n">getJSON</span><span class="p">(</span><span class="s2">&quot;/cities_by_state&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="s1">&#39;&lt;option value=&quot;&quot;&gt;SELECT A CITY&lt;/option&gt;&#39;</span><span class="p">;</span>
+</span><span class='line'>      <span class="vg">$.</span><span class="n">each</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">cty</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">options</span> <span class="o">+=</span> <span class="s1">&#39;&lt;option value=&quot;&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="o">.</span><span class="n">id</span> <span class="o">+</span> <span class="s1">&#39;&quot;&gt;&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="o">.</span><span class="n">n</span> <span class="o">+</span> <span class="s1">&#39;&lt;/option&gt;&#39;</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">});</span>
+</span><span class='line'>      <span class="err">$</span><span class="p">(</span><span class="s2">&quot;#user_city_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">html</span><span class="p">(</span><span class="n">options</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>O primeiro metodo chama o segundo se o estado do combobox for modificado. O segundo metodo retorna as cidades referente ao estado selecionado no combobox e preenche o combobox com suas cidades.</p>
+
+<p>Agora finalizando vamos modificar o combobox de cities para não exibir as cidades ao entar no form de usuarios, esperando o usuario selecionar primeiro um estado. O combobox deve ficar assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>   <span class="o">&lt;</span><span class="sx">%= f.label :city %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">   &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">collection_select</span> <span class="ss">:city_id</span><span class="p">,</span> <span class="o">[]</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT FIRST STATE&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Simples e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Algumas Dicas Ao Usar Rails E Rspec]]></title>
+        <link href="http://argerim.github.io/blog/2012/03/27/algumas-dicas-ao-usar-rails-e-rspec/"/>
+        <updated>2012-03-27T13:23:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/03/27/algumas-dicas-ao-usar-rails-e-rspec</id>
+        <content type="html"><![CDATA[<p>Antes de começar seria bom dar uma olhada <a href="http://argerim.github.io/blog/2012/03/15/preparando-sua-aplicacao-rails-para-testes-com-guard-e-rspec">nesse meu post</a></p>
+
+<p>Esperando que você tenha lido o post do link acima, vamos fazer uma pequena modificação no arquivo gemfile, ficando agora assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s2">&quot;rspec-rails&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; 2.6&quot;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-rspec&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora o porque de ter adicionado o :development, foi simplesmente para termos alguns benefícios do Rspec, onde ao criarmos um model, controller ou o próprio scaffold, também será gerado seus arquivos de teste.</p>
+
+<p>Faça os seguintes comandos e veja as saídas:</p>
+
+<pre><code>rails g controller post index
+rails g model post title:string body:text
+rails g scaffold post title:string body:text
+</code></pre>
+
+<p>Se tudo ocorreu como o esperado você dete ter visto pelo menos esta saída:</p>
+
+<pre><code>invoke  active_record
+create    db/migrate/20120327143756_create_posts.rb
+create    app/models/post.rb
+invoke    rspec
+create      spec/models/post_spec.rb
+</code></pre>
+
+<p>Observe que foi criado um arquivo post_spec.rb dentro da pasta spec/models.</p>
+
+<p>Pegando como exemplo somente o comando de criação do model, se executarmos o comando guard, devemos ter a seguinte saída:</p>
+
+<pre><code>Pending:
+Post add some examples to (or delete) /home/rogerio/projetos/rspec_test/spec/models/post_spec.rb
+    # No reason given
+    # ./spec/models/post_spec.rb:4
+
+Finished in 0.00026 seconds
+1 example, 0 failures, 1 pending
+Bye bye...
+</code></pre>
+
+<p>Acima ele diz que existe uma pendência, isto é claro, pois temos somente um arquivo base para criarmos nossos testes, então vamos colocar uma simples validação dentro do model post:</p>
+
+<pre><code>validate_presence_of :title
+</code></pre>
+
+<p>Essa validação diz que não é possivel cadastrar um post com título em branco, vamos fazer o teste para criar um Post.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Post</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be valid&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s2">&quot;My first Post&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@post</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora vamos preparar nosso banco de dados para executar o teste, abra o terminal e execute o comando:</p>
+
+<pre><code>rake db:migrate RAILS_ENV=test
+</code></pre>
+
+<p>Logo em seguida execute o comando guard, certamente nosso teste irá passar, vamos fazer a seguinte modificação na validação, de modo que irá quebrar nosso teste, adicione depois do campo title, o body, ficando assim:</p>
+
+<pre><code>validate_presence_of :title, :body
+</code></pre>
+
+<p>Agora nosso teste não esta passando, então vamos arrumar isso, ficando agora assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Post</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be valid&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s2">&quot;My first Post&quot;</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="s1">&#39;Help me&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@post</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Vamos adicionar um teste que verifica se o title esta nil:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Post</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be invalid without a title&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="s2">&quot;Help me&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="c1">#@post.should be_invalid(:title) uma pequena correção aqui bem observada pelo</span>
+</span><span class='line'>      <span class="c1">#companheiro de trabalho Pedro Nascimento, be_invalid é usando com callbacks, o correto</span>
+</span><span class='line'>      <span class="c1">#é assim:</span>
+</span><span class='line'>      <span class="vi">@post</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>E este é nosso arquivo final:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Post</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be valid&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s2">&quot;My first Post&quot;</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="s2">&quot;Help me&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@post</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should be invalid without a title&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span> <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="s2">&quot;Help me&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="c1">#@post.should be_invalid(:title) uma pequena correção aqui bem observada pelo</span>
+</span><span class='line'>      <span class="c1">#companheiro de trabalho Pedro Nascimento, be_invalid é usando com callbacks, o correto</span>
+</span><span class='line'>      <span class="c1">#é assim:</span>
+</span><span class='line'>      <span class="vi">@post</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_valid</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ficam as dicas:</p>
+
+<p>Ao ver o before em um teste fique sabendo que ele contem condições que serão executadas antes do teste.</p>
+
+<p>O it é sempre uma especificação, normalmente validando algo, que sempre esta associada a um describe.</p>
+
+<p>O describe contem uma ou várias especificações, validando no final um determinado contexto.</p>
+
+<p>Tente fazer seus teste sempre em inglês.</p>
+
+<p>Faça primeiro os testes, depois code.</p>
+
+<p>Além disso, poderiamos deixar o código mais dry usando o remarkable ou shoulda, que podemos integrar com o rspec, facilitando quando vamos fazer validação, um exemplo esta logo abaixo de como seria escrito o teste para validar o título do post:</p>
+
+<pre><code>it {should validate_presence_of :title }
+</code></pre>
+
+<p>Simples e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Devise - Bloqueando O Acesso Do Usuário Ao Sistema]]></title>
+        <link href="http://argerim.github.io/blog/2012/03/19/devise-bloqueando-o-acesso-do-usuario-ao-sistema/"/>
+        <updated>2012-03-19T19:02:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/03/19/devise-bloqueando-o-acesso-do-usuario-ao-sistema</id>
+        <content type="html"><![CDATA[<p>O Devise tem um método chamado active_for_authentication, o qual dá permissão ao usuário de logar no sistema.
+Vamos sobrescreve-lo no model User e assim termos o poder de bloquear um usuário.
+Antes de ir ao código vamos escrever o teste:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Test</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;spec_helper&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">describe</span> <span class="no">Devise</span><span class="o">::</span><span class="no">SessionsController</span> <span class="k">do</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">Devise</span><span class="o">::</span><span class="no">TestHelpers</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">before</span> <span class="k">do</span>
+</span><span class='line'>    <span class="vi">@user</span> <span class="o">=</span> <span class="no">Factory</span><span class="p">(</span><span class="ss">:confirmed_user</span><span class="p">,</span> <span class="ss">:active</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">request</span><span class="o">.</span><span class="n">env</span><span class="o">[</span><span class="s2">&quot;devise.mapping&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="no">Devise</span><span class="o">.</span><span class="n">mappings</span><span class="o">[</span><span class="ss">:user</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s1">&#39;will not sign user in if not active&#39;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">:user</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span><span class="p">}</span>
+</span><span class='line'>    <span class="n">controller</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_user_active</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>O teste simplesmente nos mostra uma mensagem se o usuario não tiver permissão de login, agora vamos coda.
+Criamos uma migration adicionando um campo com o nome de active do tipo boolean:</p>
+
+<pre><code>rails g migration Add_active_To_User active:boolean
+rails rake db:migrate
+</code></pre>
+
+<p>Agora adicionamos o método active_for_authentication, bem como o inactive_message, que irá exibir uma mensagem se o usuário estiver bloquedo. Isso dentro do model User, não esqueça.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># User model</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">active_for_authentication?</span>
+</span><span class='line'>  <span class="n">active</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">inactive_message</span>
+</span><span class='line'>  <span class="s2">&quot;Sorry, this account has been deactivated.&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Simples e fácil, agora é so fazer uma action para ficar mudando de false para true o campo active.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Preparando Sua Aplicação Rails Para Testes Com Guard e Rspec]]></title>
+        <link href="http://argerim.github.io/blog/2012/03/15/preparando-sua-aplicacao-rails-para-testes-com-guard-e-rspec/"/>
+        <updated>2012-03-15T11:36:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/03/15/preparando-sua-aplicacao-rails-para-testes-com-guard-e-rspec</id>
+        <content type="html"><![CDATA[<p>Guard</p>
+
+<p>É uma ferramente de linha de comando que nos ajuda a lidar com eventos sobre modificações em arquivos.</p>
+
+<p>Rspec</p>
+
+<p>É um framework BDD, feito em Ruby, que nos permite escrever testes.</p>
+
+<p>Vamos começar, criamos nossa aplicação, logo em seguida abrimos o arquivo Gemfile e adicionamos o seguinte grupo:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s2">&quot;rspec-rails&quot;</span><span class="p">,</span> <span class="s2">&quot;~&gt; 2.6&quot;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-rspec&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Abra o terminal e execute o comando:</p>
+
+<pre><code>bundle install
+</code></pre>
+
+<p>Ainda com terminal aberto, com os respectivos comandos, logo abaixo, vamos gerar uma arquivo Guardfile e o diretório spec com os arquivos necessário para começar com os testes.</p>
+
+<pre><code>guard init
+rails generate rspec:install
+</code></pre>
+
+<p>Fácil não ? Sua aplicação agora esta pronta para aceitar seus testes, comece a escrevê-los</p>
+
+<p>Para dar inicio à ferramenta guard é so ir até a raiz da aplicação Rails e executar o seguinte comando:</p>
+
+<pre><code>guard
+</code></pre>
+
+<p>Simple e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Criando Sua Primeira Gem Parte 3]]></title>
+        <link href="http://argerim.github.io/blog/2012/03/14/criando-sua-primeira-gem-parte-3/"/>
+        <updated>2012-03-14T11:45:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/03/14/criando-sua-primeira-gem-parte-3</id>
+        <content type="html"><![CDATA[<p>Agora entramos na parte de teste, então porque fazer testes ?
+Teste é extremamente importante, pois não só garante que seu código funcione, como ajuda aos outros a saberem que sua gem irá fazer o serviço lol.</p>
+
+<p>Antes de começar dê uma olhada <a href="http://argerim.github.io/blog/2012/03/06/criando-sua-primeira-gem-parte-1/">Criando Sua Primeira Gem Parte 1</a></p>
+
+<p>Começamos adicionando um arquivo com o nome Rakefile, que nos permitirá automatizar os testes:</p>
+
+<pre><code>touch Rakefile
+</code></pre>
+
+<p>Agora colocamos um pouco de código no arquivo:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;rake/testtask&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Rake</span><span class="o">::</span><span class="no">TestTask</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">t</span><span class="o">.</span><span class="n">libs</span> <span class="o">&lt;&lt;</span> <span class="s1">&#39;test&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">desc</span> <span class="s2">&quot;Run tests&quot;</span>
+</span><span class='line'><span class="n">task</span> <span class="ss">:default</span> <span class="o">=&gt;</span> <span class="ss">:test</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>E agora vamos criar uma pasta com o nome test e um arquivo como o nome test_miguxo_gem.rb:</p>
+
+<pre><code>mkdir test
+cd test
+touch test_miguxo_gem.rb
+</code></pre>
+
+<p>Colocamos um pouco de código no arquivo test_miguxo_gem.rb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># -*- coding: utf-8 -*-</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;test/unit&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;miguxo_gem&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MiguxoTest</span> <span class="o">&lt;</span> <span class="no">Test</span><span class="o">::</span><span class="no">Unit</span><span class="o">::</span><span class="no">TestCase</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">test_dmitrynix_miguxo</span>
+</span><span class='line'>    <span class="n">assert_equal</span> <span class="s2">&quot;Olá Miguxito Mestre em Testes lol&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="no">Miguxo</span><span class="o">.</span><span class="n">xaudacao</span><span class="p">(</span><span class="ss">:dmitrynix</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">test_caironoleto_miguxo</span>
+</span><span class='line'>    <span class="n">assert_equal</span> <span class="s2">&quot;Olá Miguxito Mestre em Rails lol&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="no">Miguxo</span><span class="o">.</span><span class="n">xaudacao</span><span class="p">(</span><span class="ss">:caironoleto</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">test_infoslack_miguxo</span>
+</span><span class='line'>    <span class="n">assert_equal</span> <span class="s2">&quot;Olá Miguxito Mestre em Sugurança lol&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="no">Miguxo</span><span class="o">.</span><span class="n">xaudacao</span><span class="p">(</span><span class="ss">:infoslack</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">test_leandrosales_miguxo</span>
+</span><span class='line'>    <span class="n">assert_equal</span> <span class="s2">&quot;Olá Miguxito Mestre em Sacanagem lol&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="no">Miguxo</span><span class="o">.</span><span class="n">xaudacao</span><span class="p">(</span><span class="ss">:leandrosales</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">test_weldyss_miguxo</span>
+</span><span class='line'>    <span class="n">assert_equal</span> <span class="s2">&quot;Olá Miguxito Chefe lol&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="no">Miguxo</span><span class="o">.</span><span class="n">xaudacao</span><span class="p">(</span><span class="ss">:weldyss</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">test_any_ola_miguxo</span>
+</span><span class='line'>    <span class="n">assert_equal</span> <span class="s2">&quot;Olá Miguxito&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="no">Miguxo</span><span class="o">.</span><span class="n">xaudacao</span><span class="p">(</span><span class="s2">&quot;rails&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Nossa nova estrutura deve ficar assim:</p>
+
+<pre><code>% Nova estrutura
+.
+├── Rakefile
+├── miguxo_gem.gemspec
+├── lib
+│   ├── miguxo
+│   │   └── miguxito.rb
+│   └── miguxo_gem.rb
+└── test
+    └── test_miguxo_gem.rb
+</code></pre>
+
+<p>Pronto agora sua gem já esta com os testes, vamos executar, abra o terminal e digite:</p>
+
+<pre><code>rake test
+</code></pre>
+
+<p>A saída deve ser a seguinte:</p>
+
+<pre><code>Run options: 
+
+# Running tests:
+
+......
+
+Finished tests in 0.000863s, 6950.5423 tests/s, 6950.5423 assertions/s.
+
+6 tests, 6 assertions, 0 failures, 0 errors, 0 skips
+</code></pre>
+
+<p>Simples e fácil lol.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Instalação Lua Ubuntu 11.10]]></title>
+        <link href="http://argerim.github.io/blog/2012/03/13/instalacao-lua-ubuntu-11-dot-10/"/>
+        <updated>2012-03-13T15:49:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/03/13/instalacao-lua-ubuntu-11-dot-10</id>
+        <content type="html"><![CDATA[<p>A empresa na qual trabalho resolveu partir para o desenvolvimento em TV Digital.
+Resolvi começar a estudar sobre a linguagem que iremos usar.
+Até o momento nenhuma dificuldade, logo abaixo irei mostrar como instalar no linux, algo que foi bem simples, mas antes uma breve descrição sobre a linguagem.</p>
+
+<pre><code>"Lua é uma linguagem de programação leve e poderosa. Projetada por uma equipe do 
+laboratório Lablua da PUC-Rio, nasceu e cresceu dentro do Tecgraf desde 1993.
+Lua é FOSS, registrada sob a licença GNU/GPL. Em um vislumbre superficial Lua 
+pode parecer uma linguagem de mercado reduzido, mas esta é uma primeira impressão
+equivocada. Isto ocorre porque Lua é uma linguagem internacional. Lua é muito 
+usada como linguagem de extensão para motores de jogos e está agora ganhando 
+força no mercado de aplicações web devido ao Projeto Kepler. Além da 
+PUC-Rio e da Petrobrás, um exemplo de companhia que usa amplamente a linguagem
+é a Lucas Arts."
+</code></pre>
+
+<p>Começando a instalação, abra o terminal e digite os seguintes comandos:</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get install liblua5.1-0 liblua5.1-0-dev lua5.1
+</code></pre>
+
+<p>Vamos testar, digite no terminal: lua, deve aparecer a seguinte saída:</p>
+
+<pre><code>Lua 5.1.4  Copyright (C) 1994-2008 Lua.org, PUC-Rio
+&gt; 
+</code></pre>
+
+<p>Vamos ao nosso velho &lsquo;hello word&rsquo;</p>
+
+<pre><code>print 'hello word'
+</code></pre>
+
+<p>Se tudo deu certo ele deve imprimir &ldquo;hello word&rdquo; logo abaixo. Simple e fácil.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Criando Sua Primeira Gem Parte 2]]></title>
+        <link href="http://argerim.github.io/blog/2012/03/06/criando-sua-primeira-gem-parte-2/"/>
+        <updated>2012-03-06T18:29:00-03:00</updated>
+        <id>http://argerim.github.io/blog/2012/03/06/criando-sua-primeira-gem-parte-2</id>
+        <content type="html"><![CDATA[<p>Continuando com o post <a href="http://argerim.github.io/blog/2012/03/06/criando-sua-primeira-gem-parte-1/">Criando Sua Primeira Gem Parte 1</a> iremos agora adicionar algumas funcionalidades para nossa gem.</p>
+
+<p>Abrimos o arquivo miguxo_gem.rb que se encontra na pasta lib e adicionamos o seguinte código:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># -*- coding: utf-8 -*-</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Miguxo</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">xaudacao</span><span class="p">(</span><span class="n">miguxito</span> <span class="o">=</span> <span class="s2">&quot;ola_miguxo&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">miguxitor</span> <span class="o">=</span> <span class="no">Miguxitos</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">miguxito</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="n">miguxitor</span><span class="o">.</span><span class="n">xaudacao</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Miguxo</span><span class="o">::</span><span class="no">Miguxitos</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">miguxito</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@miguxito</span> <span class="o">=</span> <span class="n">miguxito</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">xaudacao</span>
+</span><span class='line'>    <span class="k">case</span> <span class="vi">@miguxito</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;dmitrynix&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;Olá Miguxito Mestre Teste&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="s2">&quot;Olá Miguxito&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora vamos criar uma pasta com o nome miguxo dentro da pastar lib e criar um arquivo chamado miguxitos.rb e colocar a classe que esta logo abaixo da miguxo dentro dele, com os seguintes comandos:</p>
+
+<pre><code>mkdir miguxo
+cd miguxo
+touch miguxito.rb
+
+% Nova estrutura
+.
+├── miguxo_gem.gemspec
+└── lib
+    ├── miguxo
+    │   └── miguxitos.rb
+    └── miguxo_gem.rb
+</code></pre>
+
+<p>As classes miguxo.rb e miguxo/miguxitos.rb ficam assim respectivamente:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Miguxo</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">xaudacao</span><span class="p">(</span><span class="n">miguxito</span> <span class="o">=</span> <span class="ss">:ola_miguxo</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">miguxitor</span> <span class="o">=</span> <span class="no">Miguxito</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">miguxito</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="n">miguxitor</span><span class="o">.</span><span class="n">xaudacao</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Miguxo</span><span class="o">::</span><span class="no">Miguxito</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">miguxito</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@miguxito</span> <span class="o">=</span> <span class="n">miguxito</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">xaudacao</span>
+</span><span class='line'>    <span class="k">case</span> <span class="vi">@miguxito</span>
+</span><span class='line'>    <span class="k">when</span> <span class="ss">:dmitrynix</span>
+</span><span class='line'>      <span class="s2">&quot;Olá Miguxito Mestre em Testes lol&quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="ss">:caironoleto</span>
+</span><span class='line'>       <span class="s2">&quot;Olá Miguxito Mestre em Rails lol&quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="ss">:infoslack</span>        
+</span><span class='line'>       <span class="s2">&quot;Olá Miguxito Mestre em Sugurança lol&quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="ss">:leandrosales</span>
+</span><span class='line'>       <span class="s2">&quot;Olá Miguxito Mestre em Sacana lol&quot;</span> 
+</span><span class='line'>    <span class="k">when</span> <span class="ss">:weldyss</span>
+</span><span class='line'>       <span class="s2">&quot;Olá Miguxito Chefe lol&quot;</span>    
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>       <span class="s2">&quot;Olá Miguxito&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora vamos alterar o arquivo gemspec, ficando agora assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Gem</span><span class="o">::</span><span class="no">Specification</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sx">%q{miguxo_gem}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="s1">&#39;Rogerio Medeiros&#39;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.0.1&quot;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="sx">%q{2012-03-06}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="sx">%q{Miguxo!}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Uma simples gem chamada miguxo_gem&quot;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">email</span>       <span class="o">=</span> <span class="s1">&#39;argerim@gmail.com&#39;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">homepage</span>    <span class="o">=</span>
+</span><span class='line'>    <span class="s1">&#39;http://heroku.rogeriolol.com&#39;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="o">[</span>
+</span><span class='line'>    <span class="s2">&quot;lib/miguxo_gem.rb&quot;</span>
+</span><span class='line'>  <span class="o">]</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">require_paths</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;lib&quot;</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Gerando a nova versão da gem e instalando:</p>
+
+<pre><code>gem build miguxo_gem.gemspec
+gem install miguxo_gem-0.0.1.gem
+</code></pre>
+
+<p>Agora vamos executar com o camando abaixo:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">irb</span> <span class="o">-</span><span class="no">Ilib</span> <span class="o">-</span><span class="n">rmiguxo_gem</span>
+</span><span class='line'><span class="p">:</span><span class="mo">001</span> <span class="o">&gt;</span> <span class="no">Miguxo</span><span class="o">.</span><span class="n">xaudacao</span><span class="p">(</span><span class="ss">:dmitrynixx</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="s2">&quot;Olá Miguxito&quot;</span>
+</span><span class='line'><span class="p">:</span><span class="mo">002</span> <span class="o">&gt;</span> <span class="no">Miguxo</span><span class="o">.</span><span class="n">xaudacao</span><span class="p">(</span><span class="ss">:dmitrynix</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="s2">&quot;Olá Miguxito Mestre Teste&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>O comando -Ilib é para ele incluir o diretório lib, na próxima parte faremos os testes, simples e fácil lol.</p>
+
+<p><a href="http://argerim.github.io/blog/2012/03/14/criando-sua-primeira-gem-parte-3/">Criando Sua Primeira Gem Parte 3</a></p>
+]]></content>
+    </entry>
+    
+</feed>

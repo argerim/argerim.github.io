@@ -1,0 +1,473 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Cont Preenchendo ComboBox Com Cidades De Acordo Com O Estado Selecionado Em Rails - Rogerio Medeiros</title>
+        <meta name="author" content="Rogerio Medeiros">
+        
+        <meta name="description" content="ruby rails git linux ubuntu lol rogerio medeiros rvm github argerim">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://argerim.github.io/blog/2012/05/15/cont-preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails">
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="Rogerio Medeiros" type="application/atom+xml">
+    </head>
+
+
+    <body >
+
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">Rogerio Medeiros</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/cv/">C.V.</a></li>
+</ul>
+</nav>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">Cont Preenchendo ComboBox Com Cidades De Acordo Com O Estado Selecionado Em Rails</h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2012-05-15T22:06:00-03:00" pubdate><i class="fa fa-calendar"></i> May 15th, 2012</time>
+
+
+
+
+            
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p>Seguindo esse meu <a href="/blog/2012/03/29/preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/">post</a> e para tirar a <a href="http://groups.google.com/group/rails-br/browse_thread/thread/c7cca1985d0910bd?hl=pt-BR">duvida do Romulo e Tiago</a> no <a href="http://groups.google.com/group/rails-br?hl=pt-BR">grupo rails-br</a>, resolvi ir um pouco mais longe sobre <a href="/blog/2012/03/29/preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/">o post de preencher combobox de acordo com o estado selecionado</a>.</p>
+
+<p>Vamos as seguintes alterações:</p>
+
+<p>1) Sigua esse <a href="/blog/2012/04/19/dando-uma-limpada-no-log-no-modo-de-desenvolvimento-do-rails/">post</a>, pois vamos verificar o terminal para saber como esta sendo passado o parametro state_id;</p>
+
+<p>2) Veja que ao abrir a url do sistema e modificar o estado e cidade os mesmos não se mantem na página ao pressionar o botão de criar ou atualizar;</p>
+
+<p>3) Adicione: <code>attr_accessor :state_id</code> no model User e em seguida faça a seguinte mudança na partial form de User:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">###### Antes</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :state %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">collection_select</span><span class="p">(</span><span class="ss">:state</span> <span class="p">,</span><span class="ss">:id</span><span class="p">,</span> <span class="no">State</span><span class="o">.</span><span class="n">all</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT A STATE&#39;</span><span class="p">)</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>    <span class="err">$</span><span class="p">(</span><span class="n">document</span><span class="p">)</span><span class="o">.</span><span class="n">ready</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>   <span class="err">$</span><span class="p">(</span><span class="s2">&quot;#state_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">getCitiesByState</span><span class="p">(</span><span class="s2">&quot;id=&quot;</span><span class="o">+</span><span class="err">$</span><span class="p">(</span><span class="s2">&quot;#state_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="p">());</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'> <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'> <span class="c1">##### Depois</span>
+</span><span class='line'>   <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :state %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">collection_select</span> <span class="ss">:state_id</span><span class="p">,</span> <span class="no">State</span><span class="o">.</span><span class="n">all</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:selected</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">state_id</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT A STATE&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>    <span class="err">$</span><span class="p">(</span><span class="n">document</span><span class="p">)</span><span class="o">.</span><span class="n">ready</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>   <span class="err">$</span><span class="p">(</span><span class="s2">&quot;#user_state_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">getCitiesByState</span><span class="p">(</span><span class="s2">&quot;id=&quot;</span><span class="o">+</span><span class="err">$</span><span class="p">(</span><span class="s2">&quot;#user_state_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">val</span><span class="p">());</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Com essas modificações podemos observar que agora o estado se mantem ao selecionar um no combobox, mas a cidade não. Veja que foi adicionado um parametro no collection, então essa sera uma das soluções para o caso cidade, vamos la.
+Criamos um helper e logo em seguida alteramos o form com o seguinte código:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">###helper</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">cities</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</span><span class='line'>      <span class="no">City</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;state_id = ?&quot;</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="c1">###form</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :city %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;% if @user.state_id.present? %&gt;</span>
+</span><span class='line'><span class="sx">      &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">collection_select</span> <span class="ss">:city_id</span><span class="p">,</span> <span class="n">cities</span><span class="p">(</span><span class="vi">@user</span><span class="o">.</span><span class="n">state_id</span><span class="p">),</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:selected</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city_id</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT A CITY&#39;</span><span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;% else %&gt;</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="sx">%= f.collection_select :city_id, [], :id, :name, :selected =</span><span class="o">&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city_id</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT FIRST STATE&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;% end %&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Essa opção <code>:selected</code> fará com que ao abrir a página se existir a cidade ela venha selecionada no combobox. Com isso concluimos a parte de cadastro.</p>
+
+<p>Agora podemos verificar que na parte de edição nada aparece, então ja que sabemos para que serve o <code>:selected</code> vamos as modificaçãoes:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :state %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">collection_select</span> <span class="ss">:state_id</span><span class="p">,</span> <span class="no">State</span><span class="o">.</span><span class="n">all</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:selected</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">present?</span> <span class="p">?</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">state_id</span> <span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">state_id</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="s1">&#39;SELECT A STATE&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :city %&gt;&lt;br /&gt;</span>
+</span><span class='line'><span class="sx">      &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">collection_select</span> <span class="ss">:city_id</span><span class="p">,</span> <span class="n">cities</span><span class="p">(</span><span class="vi">@user</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">present?</span> <span class="p">?</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">state_id</span> <span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">state_id</span><span class="p">),</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:selected</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city_id</span><span class="p">,</span> <span class="ss">:include_blank</span> <span class="o">=&gt;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">present?</span> <span class="o">||</span> <span class="vi">@user</span><span class="o">.</span><span class="n">state_id</span><span class="o">.</span><span class="n">present?</span> <span class="p">?</span> <span class="s1">&#39;SELECT A CITY&#39;</span> <span class="p">:</span> <span class="s1">&#39;SELECT FIRST STATE&#39;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora cabe a você fazer as modificações necessárias. <a href="https://github.com/argerim/cities_by_state">O código esta no github</a>. Simple e fácil lol.</p>
+
+
+
+</article>
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--unavailable hire--vibrant">
+    
+        Not looking for new opportunities at this time
+    
+</div>
+
+
+        </section>
+    
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        
+        <li><a class="github" href="//github.com/argerim"><i class="fa fa-github"></i> Github</a></li>
+        
+        
+        
+        <li><a class="linkedin" href="//linkedin.com/in/argerim"><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+        
+        
+        
+        <li><a class="twitter" href="//twitter.com/argerimsf"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
+</section>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2012/06/23/criando-e-manipulando-string-com-gsub-em-lua/">Criando E Manipulando String Com Gsub Em Lua</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/26/minha-mais-nova-gem-address-by-cep/">Minha Mais Nova Gem Address By Cep</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/15/cont-preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/">Cont Preenchendo ComboBox Com Cidades De Acordo Com O Estado Selecionado Em Rails</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/13/exibindo-versao-ruby-gemset-e-branch-atual-no-terminal/">Exibindo Versao Ruby Gemset E Branch Atual No Terminal</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2012/05/11/um-mes-de-rio-de-janeiro/">Um Mes De Rio De Janeiro</a>
+        </li>
+        
+    </ul>
+</section>
+
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/argerim" title="@argerim on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Latest Tweets
+        
+        <small class="pull-right">
+            <a class="btn" href="//twitter.com/argerimsf" title="@argerimsf on Twitter" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/argerimsf"  data-widget-id="597899201150869504"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @argerimsf</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <p class="footer__copyright">
+    All content copyright Rogerio Medeiros.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div>
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--unavailable hire--vibrant">
+    
+        Not looking for new opportunities at this time
+    
+</div>
+
+</div>
+        </div>
+        
+    </div>
+</footer>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-29610246-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'meubloglol';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://argerim.github.io/blog/2012/05/15/cont-preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/';
+        var disqus_url = 'http://argerim.github.io/blog/2012/05/15/cont-preenchendo-combobox-com-cidades-de-acordo-com-o-estado-selecionado-em-rails/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'argerim',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>
