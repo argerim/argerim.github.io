@@ -83,6 +83,241 @@
             <header class="article__header">
     
         <h1 class="h2 article__title">
+            <a href="/blog/2012/03/06/criando-sua-primeira-gem-parte-2/">Criando Sua Primeira Gem Parte 2</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2012-03-06T18:29:00-03:00" pubdate><i class="fa fa-calendar"></i> Mar 6th, 2012</time>
+
+
+
+
+            
+
+
+            
+                <a class="pull-right" href="http://argerim.github.io/blog/2012/03/06/criando-sua-primeira-gem-parte-2/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p>Continuando com o post <a href="/blog/2012/03/06/criando-sua-primeira-gem-parte-1/">Criando Sua Primeira Gem Parte 1</a> iremos agora adicionar algumas funcionalidades para nossa gem.</p>
+
+<p>Abrimos o arquivo miguxo_gem.rb que se encontra na pasta lib e adicionamos o seguinte código:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># -*- coding: utf-8 -*-</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Miguxo</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">xaudacao</span><span class="p">(</span><span class="n">miguxito</span> <span class="o">=</span> <span class="s2">&quot;ola_miguxo&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">miguxitor</span> <span class="o">=</span> <span class="no">Miguxitos</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">miguxito</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="n">miguxitor</span><span class="o">.</span><span class="n">xaudacao</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Miguxo</span><span class="o">::</span><span class="no">Miguxitos</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">miguxito</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@miguxito</span> <span class="o">=</span> <span class="n">miguxito</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">xaudacao</span>
+</span><span class='line'>    <span class="k">case</span> <span class="vi">@miguxito</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;dmitrynix&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;Olá Miguxito Mestre Teste&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="s2">&quot;Olá Miguxito&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora vamos criar uma pasta com o nome miguxo dentro da pastar lib e criar um arquivo chamado miguxitos.rb e colocar a classe que esta logo abaixo da miguxo dentro dele, com os seguintes comandos:</p>
+
+<pre><code>mkdir miguxo
+cd miguxo
+touch miguxito.rb
+
+% Nova estrutura
+.
+├── miguxo_gem.gemspec
+└── lib
+    ├── miguxo
+    │   └── miguxitos.rb
+    └── miguxo_gem.rb
+</code></pre>
+
+<p>As classes miguxo.rb e miguxo/miguxitos.rb ficam assim respectivamente:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Miguxo</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">xaudacao</span><span class="p">(</span><span class="n">miguxito</span> <span class="o">=</span> <span class="ss">:ola_miguxo</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">miguxitor</span> <span class="o">=</span> <span class="no">Miguxito</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">miguxito</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="n">miguxitor</span><span class="o">.</span><span class="n">xaudacao</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Miguxo</span><span class="o">::</span><span class="no">Miguxito</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">miguxito</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@miguxito</span> <span class="o">=</span> <span class="n">miguxito</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">xaudacao</span>
+</span><span class='line'>    <span class="k">case</span> <span class="vi">@miguxito</span>
+</span><span class='line'>    <span class="k">when</span> <span class="ss">:dmitrynix</span>
+</span><span class='line'>      <span class="s2">&quot;Olá Miguxito Mestre em Testes lol&quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="ss">:caironoleto</span>
+</span><span class='line'>       <span class="s2">&quot;Olá Miguxito Mestre em Rails lol&quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="ss">:infoslack</span>        
+</span><span class='line'>       <span class="s2">&quot;Olá Miguxito Mestre em Sugurança lol&quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="ss">:leandrosales</span>
+</span><span class='line'>       <span class="s2">&quot;Olá Miguxito Mestre em Sacana lol&quot;</span> 
+</span><span class='line'>    <span class="k">when</span> <span class="ss">:weldyss</span>
+</span><span class='line'>       <span class="s2">&quot;Olá Miguxito Chefe lol&quot;</span>    
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>       <span class="s2">&quot;Olá Miguxito&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Agora vamos alterar o arquivo gemspec, ficando agora assim:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Gem</span><span class="o">::</span><span class="no">Specification</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sx">%q{miguxo_gem}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="s1">&#39;Rogerio Medeiros&#39;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.0.1&quot;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="sx">%q{2012-03-06}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="sx">%q{Miguxo!}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Uma simples gem chamada miguxo_gem&quot;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">email</span>       <span class="o">=</span> <span class="s1">&#39;argerim@gmail.com&#39;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">homepage</span>    <span class="o">=</span>
+</span><span class='line'>    <span class="s1">&#39;http://heroku.rogeriolol.com&#39;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="o">[</span>
+</span><span class='line'>    <span class="s2">&quot;lib/miguxo_gem.rb&quot;</span>
+</span><span class='line'>  <span class="o">]</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">require_paths</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;lib&quot;</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Gerando a nova versão da gem e instalando:</p>
+
+<pre><code>gem build miguxo_gem.gemspec
+gem install miguxo_gem-0.0.1.gem
+</code></pre>
+
+<p>Agora vamos executar com o camando abaixo:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">irb</span> <span class="o">-</span><span class="no">Ilib</span> <span class="o">-</span><span class="n">rmiguxo_gem</span>
+</span><span class='line'><span class="p">:</span><span class="mo">001</span> <span class="o">&gt;</span> <span class="no">Miguxo</span><span class="o">.</span><span class="n">xaudacao</span><span class="p">(</span><span class="ss">:dmitrynixx</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="s2">&quot;Olá Miguxito&quot;</span>
+</span><span class='line'><span class="p">:</span><span class="mo">002</span> <span class="o">&gt;</span> <span class="no">Miguxo</span><span class="o">.</span><span class="n">xaudacao</span><span class="p">(</span><span class="ss">:dmitrynix</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="s2">&quot;Olá Miguxito Mestre Teste&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>O comando -Ilib é para ele incluir o diretório lib, na próxima parte faremos os testes, simples e fácil lol.</p>
+
+<p><a href="/blog/2012/03/14/criando-sua-primeira-gem-parte-3/">Criando Sua Primeira Gem Parte 3</a></p>
+
+
+
+        </article>
+        <hr>
+    
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
             <a href="/blog/2012/03/06/metas-a-cumprir-em-2012/">Metas A Cumprir Em 2012</a>
         </h1>
     
@@ -905,92 +1140,6 @@ Miguxo.xaudaxao
         </article>
         <hr>
     
-        
-        <article class="article article--index">
-            <header class="article__header">
-    
-        <h1 class="h2 article__title">
-            <a href="/blog/2012/02/28/primeiros-passos-com-tower/">Primeiros Passos Com Tower</a>
-        </h1>
-    
-
-    
-        <div class="article__meta clearfix">
-            
-
-
-
-
-
-
-    <time class="article__date pull-left" datetime="2012-02-28T11:19:00-03:00" pubdate><i class="fa fa-calendar"></i> Feb 28th, 2012</time>
-
-
-
-
-            
-
-
-            
-                <a class="pull-right" href="http://argerim.github.io/blog/2012/02/28/primeiros-passos-com-tower/#disqus_thread">
-                    Comments <i class="fa fa-comment"></i>
-                </a>
-            
-        </div>
-    
-</header>
-
-
-
-
-    <p>O que é o Tower</p>
-
-<pre><code>Framework Web com Node.js que parece exatamente com Rails, mas em CoffeeScript.
-</code></pre>
-
-<p>Instalando NodeJS</p>
-
-<pre><code>sudo apt-get update
-sudo apt-get install git-core curl build-essential openssl libssl-dev
-git clone https://github.com/joyent/node.git &amp;&amp; cd node
-git checkout v0.5.10
-./configure
-make -j2
-sudo make install
-node --version
-</code></pre>
-
-<p>Instalando NPM</p>
-
-<pre><code>curl http://npmjs.org/install.sh | sudo sh
-npm --version
-</code></pre>
-
-<p>Instalando CoffeeScript</p>
-
-<pre><code>sudo npm install -g coffee-script
-coffee --version
-</code></pre>
-
-<p>Instalando Tower</p>
-
-<pre><code>sudo npm install tower -g
-</code></pre>
-
-<p>Criando sua primeira aplicação</p>
-
-<pre><code>tower new app
-cd app
-tower server #subindo a aplicação -&gt; localhost:3000
-</code></pre>
-
-<p>Mais informações <a href="http://towerjs.org/">aqui</a></p>
-
-
-
-        </article>
-        <hr>
-    
 
     <div class="pagination">
     
@@ -1060,6 +1209,10 @@ tower server #subindo a aplicação -&gt; localhost:3000
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2015/09/18/rails-e-cloudinary/">Rails E Cloudinary</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2012/06/23/criando-e-manipulando-string-com-gsub-em-lua/">Criando E Manipulando String Com Gsub Em Lua</a>
         </li>
         
@@ -1073,10 +1226,6 @@ tower server #subindo a aplicação -&gt; localhost:3000
         
         <li class="post">
             <a href="/blog/2012/05/13/exibindo-versao-ruby-gemset-e-branch-atual-no-terminal/">Exibindo Versao Ruby Gemset E Branch Atual No Terminal</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2012/05/11/um-mes-de-rio-de-janeiro/">Um Mes De Rio De Janeiro</a>
         </li>
         
     </ul>

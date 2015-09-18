@@ -83,6 +83,80 @@
             <header class="article__header">
     
         <h1 class="h2 article__title">
+            <a href="/blog/2015/09/18/rails-e-cloudinary/">Rails E Cloudinary</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2015-09-18T16:45:51-03:00" pubdate><i class="fa fa-calendar"></i> Sep 18th, 2015</time>
+
+
+
+
+            
+
+
+            
+                <a class="pull-right" href="http://argerim.github.io/blog/2015/09/18/rails-e-cloudinary/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p>Passei um bom tempo sem escrever e estou voltando.</p>
+
+<p>Hoje irei falar sobre um serviço cloud para gestão de imagem e video.</p>
+
+<p>Vamos la.</p>
+
+<p>O meu desafio era onde armazenar as imagens de um projeto Rails no qual eu era o lider tecnico.</p>
+
+<p>Como era um projeto legado e as imagens estavam diretamente no serviço da amazon com a gem Carrierwave, optei por refaze-lo: infra, modelagem dos dados, codigo e alguns serviços extras.</p>
+
+<p>Dado que era um projeto grande e com varios tamanhos para imagens acabei aceitando a forma de trabalho do serviço <a href="http://cloudinary.com">cloudinary</a>, para mim hoje o melhor serviço de armazenamento e gestão de imagens.</p>
+
+<p>De certa forma adotamos ele em todos os projetos realizados na empresa.</p>
+
+<p>Eis os motivos de usarmos nos projetos:</p>
+
+<ul>
+<li>Podemos criar uma conta free, com uma boa quantidade de armazenamento.</li>
+<li>É possivel enviar qualquer arquivo de qualquer fonte/escala.</li>
+<li>Fornece uma api para upload diretamente do browser do cliente.</li>
+<li>Imagens com backup automatico e revisões, além de poder aumentar o nosso armazenamento.</li>
+<li>Varias bibliotecas interativas.</li>
+<li>Tinhamos uma imagem otimizada para qualquer dispositivo em qualquer lugar de uma forma agil.</li>
+<li>E o principal a manipulação dinamicamente das imagens para caber em qualquer escopo grafico do projeto. Alem de efeitos, redimensionamento, recorte, detecção de rosto, marcas d&#8217;água e toneladas de capacidade de processamento de imagem.</li>
+</ul>
+
+
+<p>Como o projeto era Ruby/Rails fui olhar a documentação e vi que tinhamos a gem <a href="https://github.com/cloudinary/cloudinary_gem">cloudinary_gem</a> prontinha para uso.</p>
+
+<p>Simples e fácil lol o estudo.</p>
+
+
+
+        </article>
+        <hr>
+    
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
             <a href="/blog/2012/06/23/criando-e-manipulando-string-com-gsub-em-lua/">Criando E Manipulando String Com Gsub Em Lua</a>
         </h1>
     
@@ -1218,237 +1292,6 @@ Served asset /comments.js - 304 Not Modified (1ms)
         </article>
         <hr>
     
-        
-        <article class="article article--index">
-            <header class="article__header">
-    
-        <h1 class="h2 article__title">
-            <a href="/blog/2012/04/14/continuando-a-saga-sobre-ajax-e-rails/">Continuando A Saga Sobre Ajax E Rails</a>
-        </h1>
-    
-
-    
-        <div class="article__meta clearfix">
-            
-
-
-
-
-
-
-    <time class="article__date pull-left" datetime="2012-04-14T20:49:00-03:00" pubdate><i class="fa fa-calendar"></i> Apr 14th, 2012</time>
-
-
-
-
-            
-
-
-            
-                <a class="pull-right" href="http://argerim.github.io/blog/2012/04/14/continuando-a-saga-sobre-ajax-e-rails/#disqus_thread">
-                    Comments <i class="fa fa-comment"></i>
-                </a>
-            
-        </div>
-    
-</header>
-
-
-
-
-    <p>Bom pessoal, demorei um pouco a fazer outro post devido ter me mudado para o Rio de Janeiro lol, trabalhando aqui agora. Não sei se posso falar a empresa que estou agora, ah vou falar rs. Bom fui contratado pela Helabs empresa do <a href="https://twitter.com/smergulhao">Sylvestre Mergulhão</a> e <a href="https://twitter.com/rafaelp">Rafael Lima</a>. Não tenho nem palavras para expressar a felicidade, que dizer tenho sim &ldquo;lol&rdquo;. Será um experiência única então vamos ao post.</p>
-
-<p>Antes de começar esse post você deve seguir esse <a href="/blog/2012/03/31/basico-de-jquery-e-ajax-em-rails/">aqui</a> e esse <a href="/blog/2012/04/01/mensagem-de-erro-de-validacao-em-rails-como-um-helper/">outro</a></p>
-
-<p>Depois de completar os 2 posts acima, iremos colocar nosso projeto ajax e rails para exibir as mensagens de erro ao criar um post, bem como a mensagem flash. Não é nada muito complicado so iremos fazer uma simples condição no arquivo /views/post/create.js.erb, adicionar uma nova div no form que irá exibir a mensagem de erro, adicionar a div para flash_notice na index de post e uma pequena alteração no controller de post ao criar um.</p>
-
-<p>Vamos comerçar com a parte de mensagem de erro, hum bom vamos fazer tudo logo, assim era como estava o arquivo create.js.erb de post:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;#comments&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="s1">&#39;&lt;%= escape_javascript(render(@comment)) %&gt;&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;#comments &gt; li&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">effect</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">,</span> <span class="p">{</span><span class="ss">color</span><span class="p">:</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="ss">mode</span><span class="p">:</span> <span class="s1">&#39;show&#39;</span><span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
-</span><span class='line'><span class="err">$</span><span class="p">(</span><span class="s1">&#39;#comment_form &gt; form&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">reset</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Alteramos para:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">% if </span><span class="vi">@post</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">any?</span> <span class="o">-</span><span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">  /*Hide the flash notice div*/</span>
-</span><span class='line'><span class="sx">  $(&#39;#flash_notice&#39;).hide(300);</span>
-</span><span class='line'>
-</span><span class='line'><span class="sx">  /*Update the html of the div post_errors with the new one*/</span>
-</span><span class='line'><span class="sx">  $(&#39;#post_errors&#39;).html(&#39;&lt;%= escape_javascript(error_messages_for(@post))%&gt;</span><span class="s1">&#39;);</span>
-</span><span class='line'>
-</span><span class='line'><span class="s1">  /*Show the div post_errors*/</span>
-</span><span class='line'><span class="s1">  $(&#39;</span><span class="c1">#post_errors&#39;).show(300);</span>
-</span><span class='line'><span class="o">&lt;</span><span class="sx">% else </span><span class="o">-</span><span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">  /*Hide the div post_errors*/</span>
-</span><span class='line'><span class="sx">  $(&#39;#post_errors&#39;).hide(300);</span>
-</span><span class='line'>
-</span><span class='line'><span class="sx">  /*Update the html of the div flash_notice with the new one*/</span>
-</span><span class='line'><span class="sx">  $(&#39;#flash_notice&#39;).html(&#39;&lt;%= escape_javascript(flash[:notice])%&gt;</span><span class="s1">&#39;);</span>
-</span><span class='line'>
-</span><span class='line'><span class="s1">  /*Show the flash_notice div*/</span>
-</span><span class='line'><span class="s1">  $(&#39;</span><span class="c1">#flash_notice&#39;).show(300);</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="err">$</span><span class="p">(</span><span class="s1">&#39;#posts&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="s1">&#39;&lt;%= escape_javascript(render(@post)) %&gt;&#39;</span><span class="p">);</span>
-</span><span class='line'>  <span class="err">$</span><span class="p">(</span><span class="s1">&#39;#posts &gt; li&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">effect</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">,</span> <span class="p">{</span><span class="ss">color</span><span class="p">:</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="ss">mode</span><span class="p">:</span> <span class="s1">&#39;show&#39;</span><span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
-</span><span class='line'>  <span class="err">$</span><span class="p">(</span><span class="s1">&#39;#post_form &gt; form&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">reset</span><span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="sx">% end </span><span class="o">-%&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Aqui eu ja inclui a parte para exibir a mensagem flash, veja que agora nós temos uma condição, que verifica se algum erro foi lançado, se existe ele dar um hide na div de flash_notice, atualiza nossa div de post_erros com o helper que eu criei <a href="http://rogeriolol.heroku.com/blog/2012/04/01/mensagem-de-erro-de-validacao-em-rails-como-um-helper/">aqui</a> e exibe-a em seguida, senão ele da um hide na div de post_erros, atualiza a div da mensagem flash, mostra o objeto criado e limpa o formulário.</p>
-
-<p>Com nosso arquivo create.js.erb no ponto, vamos adicionar as divs nas views, primeiro abra o form de post e deixe-o assim:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= form_for(@post, :remote =</span><span class="o">&gt;</span> <span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="sx">%&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sx">  &lt;div id= &quot;post_errors&quot; style=&quot;display:none&quot;&gt;</span><span class="o">&lt;</span><span class="sr">/div&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">  &lt;div class=&quot;field&quot;&gt;</span>
-</span><span class='line'><span class="sr">    &lt;%= f.label :title %&gt;&lt;br /</span><span class="o">&gt;</span>
-</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.text_field :title %&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
-</span><span class='line'><span class="sx">  &lt;div class=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
-</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :email %&gt;&lt;br /&gt;</span>
-</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">text_field</span> <span class="ss">:email</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
-</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="o">&gt;</span>
-</span><span class='line'>    <span class="o">&lt;</span><span class="sx">%= f.label :content %&gt;&lt;br /&gt;</span>
-</span><span class='line'><span class="sx">    &lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">text_area</span> <span class="ss">:content</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
-</span><span class='line'>  <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;actions&quot;</span><span class="o">&gt;</span>
-</span><span class='line'>    <span class="o">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">  &lt;/div&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="sx">% end </span><span class="o">%&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Nossa única alteração foi a inclusão da div para exibir as mensagens de erro.
-Em seguida vamos abrir a index de post e incluir a div para a mensagem flash:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;flash_notice&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;display:none&quot;</span><span class="o">&gt;&lt;</span><span class="sr">/div&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;h1&gt;Posts&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;timer&quot;</span><span class="o">&gt;</span><span class="no">Rendered</span> <span class="ss">at</span><span class="p">:</span> <span class="o">&lt;</span><span class="sx">%= Time.now %&gt;&lt;/div&gt; </span>
-</span><span class='line'><span class="sx"> </span>
-</span><span class='line'><span class="sx">&lt;div id=</span><span class="s2">&quot;post_form&quot;</span><span class="o">&gt;</span>
-</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= render &#39;form&#39; %&gt;</span>
-</span><span class='line'><span class="sx">&lt;/div&gt;</span>
-</span><span class='line'><span class="sx"> </span>
-</span><span class='line'><span class="sx">&lt;ul id=</span><span class="s2">&quot;posts&quot;</span><span class="o">&gt;</span>
-</span><span class='line'>  <span class="o">&lt;</span><span class="sx">%= render :partial =</span><span class="o">&gt;</span> <span class="vi">@posts</span><span class="o">.</span><span class="n">reverse</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">&lt;/ul&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>E finalizando abra o controller de post e deixei-o assim:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">create</span>
-</span><span class='line'>    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:post</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
-</span><span class='line'>      <span class="k">if</span> <span class="vi">@post</span><span class="o">.</span><span class="n">save</span>
-</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="p">{</span> <span class="n">redirect_to</span> <span class="n">posts_url</span> <span class="p">}</span>
-</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@post</span><span class="p">,</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:created</span><span class="p">,</span> <span class="ss">location</span><span class="p">:</span> <span class="vi">@post</span> <span class="p">}</span>
-</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">js</span>
-</span><span class='line'>        <span class="n">flash</span><span class="o">[</span><span class="ss">:notice</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;Post was successfully created.&#39;</span>
-</span><span class='line'>      <span class="k">else</span>
-</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">action</span><span class="p">:</span> <span class="s2">&quot;index&quot;</span> <span class="p">}</span>
-</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@post</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:unprocessable_entity</span> <span class="p">}</span>
-</span><span class='line'>        <span class="nb">format</span><span class="o">.</span><span class="n">js</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Fiz uma pequena alteção, pois como estava antes não exibia a mensagem flash. Agora você ja pode verificar se esta exibindo ou não as mensagens de erro e mensagem flash, lembrando que você deve seguir esse <a href="/blog/2012/03/31/basico-de-jquery-e-ajax-em-rails/">aqui</a> e esse <a href="/blog/2012/04/01/mensagem-de-erro-de-validacao-em-rails-como-um-helper/">outro</a>, antes de começar aqui.</p>
-
-<p>Simples e fácil lol</p>
-
-
-
-        </article>
-        <hr>
-    
 
     <div class="pagination">
     
@@ -1516,6 +1359,10 @@ Em seguida vamos abrir a index de post e incluir a div para a mensagem flash:</p
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2015/09/18/rails-e-cloudinary/">Rails E Cloudinary</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2012/06/23/criando-e-manipulando-string-com-gsub-em-lua/">Criando E Manipulando String Com Gsub Em Lua</a>
         </li>
         
@@ -1529,10 +1376,6 @@ Em seguida vamos abrir a index de post e incluir a div para a mensagem flash:</p
         
         <li class="post">
             <a href="/blog/2012/05/13/exibindo-versao-ruby-gemset-e-branch-atual-no-terminal/">Exibindo Versao Ruby Gemset E Branch Atual No Terminal</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2012/05/11/um-mes-de-rio-de-janeiro/">Um Mes De Rio De Janeiro</a>
         </li>
         
     </ul>

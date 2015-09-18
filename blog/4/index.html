@@ -83,6 +83,92 @@
             <header class="article__header">
     
         <h1 class="h2 article__title">
+            <a href="/blog/2012/02/28/primeiros-passos-com-tower/">Primeiros Passos Com Tower</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2012-02-28T11:19:00-03:00" pubdate><i class="fa fa-calendar"></i> Feb 28th, 2012</time>
+
+
+
+
+            
+
+
+            
+                <a class="pull-right" href="http://argerim.github.io/blog/2012/02/28/primeiros-passos-com-tower/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p>O que é o Tower</p>
+
+<pre><code>Framework Web com Node.js que parece exatamente com Rails, mas em CoffeeScript.
+</code></pre>
+
+<p>Instalando NodeJS</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get install git-core curl build-essential openssl libssl-dev
+git clone https://github.com/joyent/node.git &amp;&amp; cd node
+git checkout v0.5.10
+./configure
+make -j2
+sudo make install
+node --version
+</code></pre>
+
+<p>Instalando NPM</p>
+
+<pre><code>curl http://npmjs.org/install.sh | sudo sh
+npm --version
+</code></pre>
+
+<p>Instalando CoffeeScript</p>
+
+<pre><code>sudo npm install -g coffee-script
+coffee --version
+</code></pre>
+
+<p>Instalando Tower</p>
+
+<pre><code>sudo npm install tower -g
+</code></pre>
+
+<p>Criando sua primeira aplicação</p>
+
+<pre><code>tower new app
+cd app
+tower server #subindo a aplicação -&gt; localhost:3000
+</code></pre>
+
+<p>Mais informações <a href="http://towerjs.org/">aqui</a></p>
+
+
+
+        </article>
+        <hr>
+    
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
             <a href="/blog/2012/02/24/dicas-git/">Dicas Git</a>
         </h1>
     
@@ -1306,6 +1392,10 @@ Eu coloquei o nome do arquivo de states.rb</p>
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2015/09/18/rails-e-cloudinary/">Rails E Cloudinary</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2012/06/23/criando-e-manipulando-string-com-gsub-em-lua/">Criando E Manipulando String Com Gsub Em Lua</a>
         </li>
         
@@ -1319,10 +1409,6 @@ Eu coloquei o nome do arquivo de states.rb</p>
         
         <li class="post">
             <a href="/blog/2012/05/13/exibindo-versao-ruby-gemset-e-branch-atual-no-terminal/">Exibindo Versao Ruby Gemset E Branch Atual No Terminal</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2012/05/11/um-mes-de-rio-de-janeiro/">Um Mes De Rio De Janeiro</a>
         </li>
         
     </ul>
